@@ -11,14 +11,12 @@ puppet-hosts is available on the
 Manage your hosts file with:
 
 ```puppet
-include hosts
+include ::hosts
 ```
 
-or, for adblocking and shock-site blocking, use:
+and, to enable adblocking or shock-site blocking, include:
 
 ```puppet
-class hosts: {
-  adblock => true,   # Defaults to false
-  shock   => true,   # Defaults to false
-}
+include ::hosts::adblock
+include ::hosts::shock
 ```

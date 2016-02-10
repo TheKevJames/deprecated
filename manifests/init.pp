@@ -1,4 +1,4 @@
-class hosts ($adblock = false, $shock = false) {
+class hosts {
 
   concat { '/etc/hosts':
     mode  => '0644',
@@ -10,19 +10,6 @@ class hosts ($adblock = false, $shock = false) {
   concat::fragment { 'default':
     target  => '/etc/hosts',
     content => template('hosts/default.erb'),
-  }
-
-  if $adblock {
-    concat::fragment { 'adblock':
-      target  => '/etc/hosts',
-      source  => 'puppet:///modules/hosts/adblock',
-    }
-  }
-  if $shock {
-    concat::fragment { 'shock':
-      target  => '/etc/hosts',
-      source  => 'puppet:///modules/hosts/shock',
-    }
   }
 
 }
