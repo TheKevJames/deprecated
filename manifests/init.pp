@@ -10,6 +10,7 @@ class hosts {
   concat::fragment { 'default':
     target  => '/etc/hosts',
     content => template('hosts/default.erb'),
+    order   => '01',
   }
 
 }
