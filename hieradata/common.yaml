@@ -1,0 +1,20 @@
+---
+vault::config: |
+    {
+        "backend": {
+            "file": {
+                "path": "/etc/vault.d/store"
+            }
+        },
+        "listener": {
+            "tcp": {
+                "address": "127.0.0.1:8200",
+                "tls_disable": 1
+            }
+        }
+    }
+
+vault::service_location: /etc/systemd/system/vault.service
+vault::service_template: vault/vault.systemd.erb
+
+vault::url: https://releases.hashicorp.com/vault/0.5.0/vault_0.5.0_linux_amd64.zip
