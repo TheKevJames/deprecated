@@ -19,7 +19,7 @@ class vault ($config, $service_location, $service_template, $url) {
 
   file { '/etc/vault.d':
     ensure  => directory,
-    purge   => true,
+    purge   => true,  # TODO: move file backend out of this directory
     recurse => true,
   } ->
   file { '/etc/vault.d/config.json':
