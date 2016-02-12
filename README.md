@@ -23,7 +23,7 @@ vault::config: |
     {
         "backend": {
             "file": {
-                "path": "/etc/vault.d/store"
+                "path": "/etc/vault"
             }
         },
         "listener": {
