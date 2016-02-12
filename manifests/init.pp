@@ -21,8 +21,7 @@ class vault ($config, $service_location, $service_template, $url) {
 
   file { '/etc/vault.d': ensure  => directory } ->
   file { '/etc/vault.d/config.json':
-    content => $::vault::config,  # TODO: consul backend
-                                  # TODO: hiera-ize instead of JSON
+    content => $::vault::config,  # TODO: hiera-ize instead of JSON
     mode    => '0644',
     notify  => Service['vault'],
   }

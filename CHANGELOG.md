@@ -1,4 +1,8 @@
 # CHANGELOG
 
+## 0.1.0
+- ensure dependencies are installed
+- move vault backend out of config directory
+
 ## 0.0.1
 - initial pre-release
