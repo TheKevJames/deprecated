@@ -1,16 +1,18 @@
 class vault ($config, $service_location, $service_template, $url) {
 
+  ensure_packages(['curl', 'unzip'])
+
   File { owner => root, group => root }
 
   exec { 'retrieve_vault':
     command => "/usr/bin/curl -s ${::vault::url} > /tmp/vault.zip",
     creates => '/tmp/vault.zip',
-    require => Package['curl'],  # TODO: include these as dependencies
+    require => Package['curl'],
   } ~>
   exec { 'unzip_vault':
     command => '/usr/bin/unzip /tmp/vault.zip -d /opt',
     creates => '/opt/vault',
-    require => Package['unzip'],  # TODO: include these as dependencies
+    require => Package['unzip'],
   } ~>
   file { '/opt/vault':
     mode   => '0755',
