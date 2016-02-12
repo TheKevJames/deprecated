@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.1.1
+- fix readme
+
 ## 0.1.0
 - ensure dependencies are installed
 - move vault backend out of config directory
