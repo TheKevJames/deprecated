@@ -19,6 +19,7 @@ class vault ($config, $service_location, $service_template, $url) {
     notify => Service['vault'],
   }
 
+  # TODO: split into client and server
   file { '/etc/vault.d': ensure  => directory } ->
   file { '/etc/vault.d/config.json':
     content => $::vault::config,  # TODO: hiera-ize instead of JSON
