@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.1.2
+- update dependencies to latest
+
 ## 0.1.1
 - fix readme
 

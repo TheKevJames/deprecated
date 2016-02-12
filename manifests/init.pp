@@ -1,6 +1,6 @@
 class vault ($config, $service_location, $service_template, $url) {
 
-  ensure_packages(['curl', 'unzip'])
+  ensure_packages(['curl', 'unzip'], { ensure => latest })
 
   File { owner => root, group => root }
 
