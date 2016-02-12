@@ -17,11 +17,7 @@ class vault ($config, $service_location, $service_template, $url) {
     notify => Service['vault'],
   }
 
-  file { '/etc/vault.d':
-    ensure  => directory,
-    purge   => true,  # TODO: move file backend out of this directory
-    recurse => true,
-  } ->
+  file { '/etc/vault.d': ensure  => directory } ->
   file { '/etc/vault.d/config.json':
     content => $::vault::config,  # TODO: consul backend
                                   # TODO: hiera-ize instead of JSON
