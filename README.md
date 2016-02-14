@@ -7,4 +7,8 @@ puppet-irssi is available on the
 
 ## Usage
 
-TODO
+Simply
+
+```puppet
+include ::irssi
+```
