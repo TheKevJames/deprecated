@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.1
+- autorun included scripts
+
 ## 1.1.0
 - parameterize irssi class
 
