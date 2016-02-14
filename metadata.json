@@ -2,7 +2,7 @@
   "name": "thekevjames-irssi",
   "version": "1.0.0",
   "author": "thekevjames",
-  "summary": "irssi management",
+  "summary": "Irssi management",
   "license": "Apache-2.0",
   "source": "https://github.com/TheKevJames/puppet-irssi",
   "project_page": "https://github.com/TheKevJames/puppet-irssi",
