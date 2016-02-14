@@ -1,4 +1,4 @@
-class irssi {
+class irssi($home, $fullname, $username, $password) {
 
   ensure_packages(['curl', 'irssi'], { ensure => latest })
 

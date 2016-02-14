@@ -10,5 +10,10 @@ puppet-irssi is available on the
 Simply
 
 ```puppet
-include ::irssi
+class { '::irssi':
+  home     => '/home/kevin',
+  fullname => 'Kevin James',
+  username => 'thekevjames',
+  password => 'aardvarkz_rule!!!!1!!'
+}
 ```
