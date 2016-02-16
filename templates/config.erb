@@ -1,0 +1,6 @@
+[DEFAULT]
+	editor = <%= scope['bazaar::editor'] %>
+	email = <%= scope['bazaar::user::fullname'] %> <<%= scope['bazaar::user::email'] %>>
+
+	tab_width = <%= scope['bazaar::tabwidth'] %>
+	bzr.default_mergetool = <%= scope['bazaar::mergetool'] %>

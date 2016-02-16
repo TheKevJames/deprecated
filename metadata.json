@@ -1,0 +1,109 @@
+{
+  "name": "thekevjames-bazaar",
+  "version": "1.0.0",
+  "author": "thekevjames",
+  "summary": "Bazaar management",
+  "license": "Apache-2.0",
+  "source": "https://github.com/TheKevJames/puppet-bazaar",
+  "project_page": "https://github.com/TheKevJames/puppet-bazaar",
+  "issues_url": "https://github.com/TheKevJames/puppet-bazaar/issues",
+  "dependencies": [ ],
+  "data_provider": "hiera",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "10 SP4",
+        "11 SP1",
+        "12"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    },
+    {
+      "operatingsystem": "Solaris",
+      "operatingsystemrelease": [
+        "10",
+        "11"
+      ]
+    },
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2003 R2",
+        "Server 2008 R2",
+        "Server 2012",
+        "Server 2012 R2"
+      ]
+    },
+    {
+      "operatingsystem": "AIX",
+      "operatingsystemrelease": [
+        "5.3",
+        "6.1",
+        "7.1"
+      ]
+    },
+    {
+      "operatingsystem": "OSX",
+      "operatingsystemrelease": [
+        "10.9"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": ">= 3.7.0 < 2015.4.0"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.0.0 < 5.0.0"
+    }
+  ]
+}
