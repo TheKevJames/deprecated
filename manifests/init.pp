@@ -1,6 +1,5 @@
-class subversion {
+class subversion($packages) {
 
-  $packages = hiera('subversion::packages')
   package { $packages: ensure => latest }
 
 }
