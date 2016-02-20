@@ -1,5 +1,5 @@
-class bazaar($editor, $mergetool, $tabwidth) {
+class bazaar($packages, $editor, $mergetool, $tabwidth) {
 
-  package { 'bzr': ensure => latest }
+  package { $packages: ensure => latest }
 
 }
