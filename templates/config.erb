@@ -1,0 +1,22 @@
+[auth]
+password-stores = <%= scope['subversion::passwordstore'] %>
+
+store-passwords = yes
+store-auth-creds = yes
+
+[helpers]
+editor-cmd = <%= scope['subversion::editor'] %>
+diff-cmd = <%= scope['subversion::diff'] %>
+diff-extensions = -u -p
+diff3-cmd = <%= scope['subversion::diff3'] %>
+diff3-has-program-arg = yes
+merge-tool-cmd = <%= scope['subversion::mergetool'] %>
+
+[tunnels]
+
+[miscellany]
+global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo *.rej *~ .*.swp .DS_Store CVS .cvsignore .directory ._* .Spotlight-V100 .Trashes .hg/ .hgignore *.sublime-project *.sublime-workspace
+use-commit-times = yes
+preserved-conflict-file-exts = doc ppt xls od?
+
+[auto-props]
