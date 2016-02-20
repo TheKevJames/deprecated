@@ -1,6 +1,6 @@
 ---
-subversion::diff3: diff3
 subversion::diff: diff
+subversion::diff3: diff3
 subversion::editor: vim
 subversion::mergetool: vimdiff
 subversion::passwordstore: gnome-keyring
