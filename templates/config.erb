@@ -1,0 +1,71 @@
+[alias]
+    amend = commit --amend
+    branches = branch -a
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%%an>%Creset' --abbrev-commit --
+    patdiff = --paginate difftool -y -x patdiff
+    remotes = remote -v
+    standup = log --all --since='last monday' --author=<%= @email %> --format=format:'%C(cyan) %ad %C(yellow)%h %Creset %s %Cgreen%d' --date=local
+    tags = tag -l --sort=version:refname
+
+[advice]
+    pushNonFastForward = false
+    statusHints = false
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    wtf = auto
+
+[core]
+    attributesfile = ~/.git.d/attributes
+    editor = <%= scope['git::editor'] %>
+    excludesfile = ~/.git.d/ignore
+    ignorecase = false
+    pager = <%= scope['git::pager'] %>
+
+[credential]
+    helper = cache --timeout=3600
+
+[diff]
+    mnemonicprefix = true
+    renames = copies
+
+[diff "pdf"]
+    textconv = pdf2txt
+
+[diff "plist"]
+    textconv = plutil -convert xml1 -o -
+
+[difftool]
+    prompt = false
+
+[fetch]
+    prune = true
+
+[help]
+    autocorrect = 30
+
+[init]
+    templatedir = ~/.git.d/templates
+
+[merge]
+    conflictstyle = <%= scope['git::conflictstyle'] %>
+    stat = true
+    tool = <%= scope['git::mergetool'] %>
+
+[pull]
+    rebase = true
+
+[push]
+    default = current
+
+[rerere]
+    enabled = true
+
+[user]
+    email = <%= scope['git::user::email'] %>
+    name = <%= scope['git::user::fullname'] %>
+
+[web]
+    browser = <%= scope['git::browser'] %>
