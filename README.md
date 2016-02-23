@@ -25,6 +25,12 @@ class { '::git::user':
 
 to configure git settings.
 
+You can also install the [Hub](https://hub.github.com/) tool with
+
+```puppet
+include ::git::hub
+```
+
 ## Configuration
 
 In addition to the above value set for `git::user`, you can also use
@@ -38,4 +44,6 @@ git::mergetool: vimdiff
 git::pager: less -FRX
 
 git::packages: git
+
+git::hub::url: https://github.com/github/hub/releases/download/v2.2.3/hub-linux-amd64-2.2.3.tgz
 ```
