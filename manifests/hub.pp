@@ -12,7 +12,7 @@ class git::hub($url) {
     require => Package['curl'],
   } ~>
   exec { 'unzip_hub':
-    command => '/usr/bin/tar -xzf /tmp/hub.tgz -C /opt/hub --strip-components 1',
+    command => "${::git::tar} -xzf /tmp/hub.tgz -C /opt/hub --strip-components 1",
     creates => '/opt/hub/bin/hub',
     require => File['/opt/hub'],
   } ->

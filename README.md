@@ -44,6 +44,7 @@ git::mergetool: vimdiff
 git::pager: less -FRX
 
 git::packages: git
+git::tar: /bin/tar
 
 git::hub::url: https://github.com/github/hub/releases/download/v2.2.3/hub-linux-amd64-2.2.3.tgz
 ```
