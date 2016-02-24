@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.2
+- add $tar parameter to ::git
+
 ## 1.1.1
 - allow configuration of tar binary location
 
