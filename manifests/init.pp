@@ -10,7 +10,7 @@ class neovim($packages, $home) {
   }
 
   if $::operatingsystem == 'Ubuntu' {
-    file { '/etc/apt/sources.list.d/neovim-ppa-unstable.list'
+    file { '/etc/apt/sources.list.d/neovim-ppa-unstable.list':
       ensure  => file,
       content => template('neovim/ubuntu-ppa.erb'),
       before  => Package[$packages],
