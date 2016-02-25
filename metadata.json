@@ -2,7 +2,7 @@
   "name": "thekevjames-mpd",
   "version": "1.0.0",
   "author": "thekevjames",
-  "summary": "Git management",
+  "summary": "Mpd management",
   "license": "Apache-2.0",
   "source": "https://github.com/TheKevJames/puppet-mpd",
   "project_page": "https://github.com/TheKevJames/puppet-mpd",
