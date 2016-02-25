@@ -5,7 +5,7 @@ class neovim($packages, $home) {
   file { "${home}/.config/nvim": ensure => directory } ->
   file { "${home}/.config/nvim/init.vim":
     ensure => present,
-    source => 'puppet://modules/neovim/init.vim',
+    source => 'puppet:///modules/neovim/init.vim',
     mode   => '0644',
   }
 
