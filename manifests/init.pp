@@ -13,6 +13,9 @@ class neovim($packages, $home) {
     file { '/etc/apt/sources.list.d/neovim-ppa-unstable.list':
       ensure  => file,
       content => template('neovim/ubuntu-ppa.erb'),
+    } ~>
+    exec { 'refresh_apt_get_neovim_ppa':
+      command => '/usr/bin/apt-get update',
       before  => Package[$packages],
     }
   }
