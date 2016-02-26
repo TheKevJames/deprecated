@@ -41,8 +41,12 @@ class neovim($dependencies, $packages, $home) {
       exec { 'refresh_apt_get_neovim_ppa':
         command     => '/usr/bin/apt-get update',
         refreshonly => true,
-      } ->
-      ensure_packages($packages, { ensure => latest })
+      }
+
+      ensure_packages($packages, {
+        ensure  => latest,
+        require => Exec['refresh_apt_get_neovim_ppa'],
+      })
     }
     default: {
       ensure_packages($packages, { ensure => latest })
