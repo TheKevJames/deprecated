@@ -1,8 +1,8 @@
-class git::hub($url) {
+class git::hub($dependencies, $url) {
 
   include ::git
 
-  ensure_packages(['curl'], { ensure => latest })
+  ensure_packages($dependencies, { ensure => latest })
 
   file { '/opt/hub': ensure => directory }
 

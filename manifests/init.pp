@@ -1,5 +1,5 @@
 class git($packages, $conflictstyle, $browser, $editor, $mergetool, $pager, $tar) {
 
-  package { $packages: ensure => latest }
+  ensure_packages($packages, { ensure => latest })
 
 }
