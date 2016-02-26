@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.1
+- bugfix for opensuse: depend on target, not function
+
 ## 1.3.0
 - install from source on OpenSuSE
 
