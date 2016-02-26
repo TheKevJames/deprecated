@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.4.0
+- fix parser validation for 3.8
+- split filetype configs into ftdetect/ files
+
 ## 1.3.1
 - bugfix for opensuse: depend on target, not function
 
