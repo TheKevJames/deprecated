@@ -9,12 +9,14 @@ class neovim($dependencies, $packages, $home) {
 
   case $::operatingsystem {
     'OpenSuSE': {
-      ensure_packages($dependencies, { ensure => latest }) ->
+      ensure_packages($dependencies, { ensure => latest })
+
       vcsrepo { '/tmp/neovim':
         ensure   => present,
         source   => 'https://github.com/neovim/neovim.git',
         provider => git,
         force    => false,
+        require  => Package[$dependencies],
       } ~>
       exec { 'make_neovim':
         cwd     => '/tmp/neovim',
