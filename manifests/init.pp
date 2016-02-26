@@ -1,10 +1,34 @@
 class neovim($dependencies, $packages, $home) {
 
   file { "${home}/.config/nvim": ensure => directory } ->
+  file { "${home}/.config/nvim/ftdetect": ensure => directory }
+
   file { "${home}/.config/nvim/init.vim":
-    ensure => present,
-    source => 'puppet:///modules/neovim/init.vim',
-    mode   => '0644',
+    ensure  => present,
+    source  => 'puppet:///modules/neovim/init.vim',
+    mode    => '0644',
+    require => File["${home}/.config/nvim"],
+  }
+
+  file { "${home}/.config/nvim/ftdetect/javascript.vim":
+    ensure  => present,
+    source  => 'puppet:///modules/neovim/javascript.vim',
+    mode    => '0644',
+    require => File["${home}/.config/nvim/ftdetect"],
+  }
+
+  file { "${home}/.config/nvim/ftdetect/markdown.vim":
+    ensure  => present,
+    source  => 'puppet:///modules/neovim/markdown.vim',
+    mode    => '0644',
+    require => File["${home}/.config/nvim/ftdetect"],
+  }
+
+  file { "${home}/.config/nvim/ftdetect/ruby.vim":
+    ensure  => present,
+    source  => 'puppet:///modules/neovim/ruby.vim',
+    mode    => '0644',
+    require => File["${home}/.config/nvim/ftdetect"],
   }
 
   case $::operatingsystem {
