@@ -1,0 +1,7 @@
+---
+neovim::dependencies:
+  - autoconf
+  - automake
+  - cmake
+  - gcc-c++
+  - libtool

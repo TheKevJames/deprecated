@@ -23,5 +23,6 @@ In addition to the above value set for `neovim`, you can also use
 hiera to override the following defaults:
 
 ```yaml
+neovim::dependencies: nil
 neovim::packages: neovim
 ```
