@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0
+- use XDG_CONFIG_HOME
+- improve package compatibility by using ensure_packages
+
 ## 1.1.2
 - add $tar parameter to ::git
 

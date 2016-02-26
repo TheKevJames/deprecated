@@ -1,13 +1,15 @@
 {
   "name": "thekevjames-git",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "author": "thekevjames",
   "summary": "Git management",
   "license": "Apache-2.0",
   "source": "https://github.com/TheKevJames/puppet-git",
   "project_page": "https://github.com/TheKevJames/puppet-git",
   "issues_url": "https://github.com/TheKevJames/puppet-git/issues",
-  "dependencies": [ ],
+  "dependencies": [
+    {"name": "puppetlabs/stdlib", "version_requirement": ">= 4.2.0 < 5.0.0"},
+  ],
   "data_provider": "hiera",
   "operatingsystem_support": [
     {
