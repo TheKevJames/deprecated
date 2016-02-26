@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.1
+- .pp files are parsed as ruby
+
 ## 1.4.0
 - fix parser validation for 3.8
 - split filetype configs into ftdetect/ files
