@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.0
+- install from source on OpenSuSE
+
 ## 1.2.1
 - bugfix for ubuntu: only update package control on source change
 - spacing fixes
