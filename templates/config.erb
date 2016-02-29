@@ -30,6 +30,7 @@
 [diff]
     mnemonicprefix = true
     renames = copies
+    tool = <%= scope['git::difftool'] %>
 
 [diff "pdf"]
     textconv = pdf2txt
@@ -39,6 +40,12 @@
 
 [difftool]
     prompt = false
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[difftool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 
 [fetch]
     prune = true
@@ -52,7 +59,13 @@
 [merge]
     conflictstyle = <%= scope['git::conflictstyle'] %>
     stat = true
-    tool = <%= scope['git::mergetool'] %>
+    tool = <%= scope['git::difftool'] %>
+
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[mergetool "vimdiff"]
+    cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
 
 [pull]
     rebase = true

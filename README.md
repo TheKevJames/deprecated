@@ -39,8 +39,8 @@ hiera to override the following defaults:
 ```yaml
 git::conflictstyle: diff3
 git::browser: google-chrome
+git::difftool: vimdiff
 git::editor: vim
-git::mergetool: vimdiff
 git::pager: less -FRX
 
 git::packages: git
