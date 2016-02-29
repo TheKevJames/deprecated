@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0
+- git::mergetool -> git::difftool (now configures difftool as well!)
+- compat with neovim (use difftool: nvimdiff).
+
 ## 1.2.1
 - fix XDG_CONFIG_HOME pathing
 
