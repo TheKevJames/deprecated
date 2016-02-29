@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.1
+- parameterize difftool for non-hiera
+
 ## 1.3.0
 - git::mergetool -> git::difftool (now configures difftool as well!)
 - compat with neovim (use difftool: nvimdiff).
