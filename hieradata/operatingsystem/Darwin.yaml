@@ -1,0 +1,6 @@
+---
+transmission::packages:
+  - transmission
+  - transmission-gtk
+
+transmission::gui::config_folder: Library/Application Support/Transmission
