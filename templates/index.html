@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+
+    <div id='repos'>
+    {% for repo in repos %}
+        <div id='repo-{{ repo.id }}'>
+            <div class='repo-header'>
+                {% if repo.fork %}
+                    <!-- TODO: link to parent -->
+                    <span class='octicon octicon-left octicon-repo-forked'></span>
+                {% endif %}
+
+                <h2 class='repo-name'>
+                    <a href='{{ repo.html_url }}'>{{ repo.name }}</a>
+                </h2>
+
+                <!-- TODO: if repo.homepage, link? -->
+
+                <span class='octicon octicon-right octicon-eye'>
+                    <a href='{{ repo.html_url }}/watchers'> {{ repo.subscribers_count }}</a>
+                </span>
+                <span class='octicon octicon-right octicon-star'>
+                    <a href='{{ repo.html_url }}/stargazers'> {{ repo.stargazers_count }}</a>
+                </span>
+                <span class='octicon octicon-right octicon-repo-forked'>
+                    <a href='{{ repo.html_url }}/network'> {{ repo.forks_count }}</a>
+                </span>
+                <span class='octicon octicon-right octicon-issue-opened'>
+                    <a href='{{ repo.html_url }}/issues'> {{ repo.open_issues_count }}</a>
+                </span>
+            </div>
+            <div class='repo-body'>
+                <p class='description'>{{ repo.description }}</p>
+            </div>
+            <div class='repo-status'>
+                <a href='{{ repo.status_link }}'>
+                    <img src='{{ repo.status_url }}' \>
+                </a>
+            </div>
+            <!-- {{ repo.created_at }} -->
+            <!-- {{ repo.pushed_at }} -->
+            <!-- {{ repo.updated_at }} -->
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+
+{% block js %}
+<script src='/js/wookmark-2.0.1.min.js'></script>
+<script>
+$('#repos').wookmark({
+    itemWidth: 300,
+    offset: 12,
+});
+</script>
+{% endblock %}
