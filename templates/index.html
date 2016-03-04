@@ -36,15 +36,32 @@
                 <span class='octicon octicon-right octicon-issue-opened'>
                     <a href='{{ repo.html_url }}/issues'> {{ repo.open_issues_count }}</a>
                 </span>
+
+                <span>
+                    {{ repo.tag }}<span class='octicon octicon-right octicon-chevron-right'> {{ repo.tag_off }}</span>
+                </span>
             </div>
             <div class='repo-body'>
                 <p class='description'>{{ repo.description }}</p>
             </div>
             <div class='repo-status'>
-                <a href='{{ repo.status_link }}'>
-                    <img src='{{ repo.status_url }}' \>
+            {% if repo.status_url and repo.status_image %}
+                <a href='{{ repo.status_url }}'>
+                    <img src='{{ repo.status_image }}' \>
                 </a>
+            {% endif %}
+            {% if repo.deploy_url and repo.deploy_stars %}
+                <a href='{{ repo.deploy_url }}'>
+                    Stars: {{ repo.deploy_stars }}
+                </a>
+            {% endif %}
+            {% if repo.deploy_url and repo.deploy_pulls %}
+                <a href='{{ repo.deploy_url }}'>
+                    Pulls: {{ repo.deploy_pulls }}
+                </a>
+            {% endif %}
             </div>
+
             <!-- {{ repo.created_at }} -->
             <!-- {{ repo.pushed_at }} -->
             <!-- {{ repo.updated_at }} -->

@@ -13,13 +13,15 @@ def index():
     repos = [api.get_repo(user, x) for x in repos]
 
     for r in config.status.get('circleci', list()):
-        repo = [x for x in repos if x['name'] == r][0]
-        if not repo:
+        try:
+            repo = [x for x in repos if x['name'] == r][0]
+        except IndexError:
+            # print 'No repo found for circleci config: {}'.format(r)
             continue
 
         url = 'https://circleci.com/gh/{}/{}'.format(user, repo['name'])
-        repo['status_link'] = url
-        repo['status_url'] = '{}/tree/{}.svg?style=svg'.format(
+        repo['status_url'] = url
+        repo['status_image'] = '{}/tree/{}.svg?style=svg'.format(
             url, repo['default_branch'])
 
     for r in config.deploy.get('hub.docker', list()):
@@ -28,7 +30,23 @@ def index():
         except AttributeError:
             gname, dname = r, r
 
-        print gname, dname
+        try:
+            repo = [x for x in repos if x['name'] == gname][0]
+        except IndexError:
+            # print 'No repo found for hub.docker config: {}'.format(gname)
+            continue
+
+        try:
+            duser, dname = dname.split('/')
+        except ValueError:
+            duser = user
+        duser = duser.lower()
+
+        docker = api.get_docker(duser, dname)
+        repo['deploy_url'] = 'https://hub.docker.com/r/{}/{}/'.format(
+            duser, dname)
+        repo['deploy_stars'] = docker['star_count']
+        repo['deploy_pulls'] = docker['pull_count']
 
     return flask.render_template(
         flask.url_for('static', filename='index.html'), username=user,
