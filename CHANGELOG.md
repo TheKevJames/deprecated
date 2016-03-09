@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.2.1
+- bugfix: fix dependency chain
+
 ## 1.2.0
 - feature: use ensure_packages for inter-compatibility
 - feature: use XDG config location

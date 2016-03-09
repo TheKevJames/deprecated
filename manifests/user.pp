@@ -13,7 +13,7 @@ class bazaar::user($home, $fullname, $email) {
     ensure  => present,
     source  => 'puppet:///modules/bazaar/ignore',
     mode    => '0644',
-    require => File["${home}/.bazaar"],
+    require => File["${home}/.config/bazaar"],
   }
 
 }
