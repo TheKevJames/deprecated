@@ -10,6 +10,7 @@ def index():
     user = config.username
 
     repos = config.repos or [x['name'] for x in api.get_all_repos(user)]
+    repos = [r for r in repos if r not in config.status.get('hide', list())]
     repos = [api.get_repo(user, x) for x in repos]
 
     for r in config.status.get('circleci', list()):

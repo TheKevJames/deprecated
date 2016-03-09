@@ -13,10 +13,10 @@
     {% for repo in repos %}
         <div id='repo-{{ repo.id }}'>
             <div class='repo-header'>
-                {% if repo.fork %}
-                    <!-- TODO: link to parent -->
-                    <span class='octicon octicon-left octicon-repo-forked'></span>
-                {% endif %}
+            {% if repo.fork %}
+                <!-- TODO: link to parent -->
+                <span class='octicon octicon-left octicon-repo-forked'></span>
+            {% endif %}
 
                 <h2 class='repo-name'>
                     <a href='{{ repo.html_url }}'>{{ repo.name }}</a>
