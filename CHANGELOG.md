@@ -1,10 +1,13 @@
 # CHANGELOG
 
+## 1.1.2
+- feature: store ~/.irssi in ~/.config
+
 ## 1.1.1
-- autorun included scripts
+- feature: autorun included scripts
 
 ## 1.1.0
-- parameterize irssi class
+- bugfix: parameterize irssi class
 
 ## 1.0.0
 - initial release
