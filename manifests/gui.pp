@@ -6,7 +6,7 @@ class transmission::gui($home, $config_folder) {
   file { "${home}/${config_folder}/settings.json":
     ensure  => present,
     content => template('transmission/gui.erb'),
-    mode    => '0644',
+    mode    => '0600',
   }
 
 }

@@ -9,7 +9,7 @@ class transmission::daemon($packages, $home, $password, $user) {
     file { "${home}/.config/transmission-daemon/settings.json":
       ensure  => present,
       content => template('transmission/daemon.erb'),
-      mode    => '0644',
+      mode    => '0600',
     }
 
     file { "${home}/torrent": ensure => directory } ->
