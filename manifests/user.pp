@@ -1,7 +1,7 @@
 class git::user($home, $fullname, $email) {
 
   include ::git
-  include ::osbase
+  class { '::osbase': home => $home }
 
   file { "${home}/.config/git":
     ensure  => directory,
