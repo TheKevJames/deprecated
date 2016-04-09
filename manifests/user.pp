@@ -1,8 +1,12 @@
 class bazaar::user($home, $fullname, $email) {
 
   include ::bazaar
+  include ::osbase
 
-  file { "${home}/.config/bazaar": ensure => directory } ->
+  file { "${home}/.config/bazaar":
+    ensure  => directory,
+    require => File["${home}/.config"],
+  } ->
   file { "${home}/.config/bazaar/bazaar.conf":
     ensure  => file,
     content => template('bazaar/config.erb'),
