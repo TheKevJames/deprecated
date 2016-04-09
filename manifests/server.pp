@@ -1,7 +1,7 @@
 class mpd::server($packages, $home, $music_dir, $service_location, $service_template, $user) {
 
   include ::mpd
-  include ::osbase
+  class { '::osbase': home => $home }
 
   package { $packages: ensure => latest }
 
