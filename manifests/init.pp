@@ -1,6 +1,6 @@
 class neovim($dependencies, $packages, $home) {
 
-  include ::osbase
+  class { '::osbase': home => $home }
 
   file { "${home}/.config/nvim":
     ensure  => directory,
