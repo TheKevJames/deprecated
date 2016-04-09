@@ -7,7 +7,9 @@
   "source": "https://github.com/TheKevJames/puppet-irssi",
   "project_page": "https://github.com/TheKevJames/puppet-irssi",
   "issues_url": "https://github.com/TheKevJames/puppet-irssi/issues",
-  "dependencies": [ ],
+  "dependencies": [
+    {"name": "thekevjames/osbase", "version_requirement": ">= 1.0.0"}
+  ],
   "data_provider": null,
   "operatingsystem_support": [
     {

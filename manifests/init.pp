@@ -1,8 +1,13 @@
 class irssi($home, $fullname, $username, $password) {
 
+  include ::osbase
+
   ensure_packages(['curl', 'irssi'], { ensure => latest })
 
-  file { "${home}/.config/irssi": ensure => directory } ->
+  file { "${home}/.config/irssi":
+    ensure  => directory,
+    require => File["${home}/.config"],
+  } ->
   file { "${home}/.config/irssi/scripts": ensure => directory } ->
   file { "${home}/.config/irssi/scripts/autorun": ensure => directory }
 
