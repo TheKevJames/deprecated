@@ -40,6 +40,4 @@ In addition to the above value set for `transmission::daemon` and
 transmission::packages: transmission
 
 transmission::daemon::packages: transmission-daemon
-
-transmission::gui::config_folder: .config/transmission
 ```

@@ -1,11 +1,15 @@
 class transmission::daemon($packages, $home, $password, $user) {
 
   if $::operatingsystem != 'Darwin' {
+    include ::osbase
     include ::transmission
 
     ensure_packages($packages, { ensure => latest })
 
-    file { "${home}/.config/transmission-daemon": ensure => directory } ->
+    file { "${home}/.config/transmission-daemon":
+      ensure  => directory,
+      require => File["${home}/.config"],
+    } ->
     file { "${home}/.config/transmission-daemon/settings.managed.json":
       ensure  => present,
       content => template('transmission/daemon.erb'),
