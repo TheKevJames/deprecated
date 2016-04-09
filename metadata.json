@@ -8,6 +8,7 @@
   "project_page": "https://github.com/TheKevJames/puppet-irssi",
   "issues_url": "https://github.com/TheKevJames/puppet-irssi/issues",
   "dependencies": [
+    {"name": "puppetlabs/stdlib", "version_requirement": ">= 4.2.0 < 5.0.0"},
     {"name": "thekevjames/osbase", "version_requirement": ">= 1.0.0"}
   ],
   "data_provider": null,
