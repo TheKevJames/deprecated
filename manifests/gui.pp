@@ -1,6 +1,5 @@
 class transmission::gui($home) {
 
-  include ::osbase
   include ::transmission
 
   file { "${home}/.config/transmission":

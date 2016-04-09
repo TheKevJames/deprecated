@@ -1,7 +1,6 @@
 class transmission::daemon($packages, $home, $password, $user) {
 
   if $::operatingsystem != 'Darwin' {
-    include ::osbase
     include ::transmission
 
     ensure_packages($packages, { ensure => latest })
