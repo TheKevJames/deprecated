@@ -1,8 +1,12 @@
 class git::user($home, $fullname, $email) {
 
   include ::git
+  include ::osbase
 
-  file { "${home}/.config/git": ensure => directory } ->
+  file { "${home}/.config/git":
+    ensure  => directory,
+    require => File["${home}/.config"],
+  } ->
   file { "${home}/.config/git/templates": ensure => directory } ->
   file { "${home}/.config/git/templates/hooks":  ensure => directory }
 
