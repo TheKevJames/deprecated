@@ -1,6 +1,8 @@
 # Install and configure jasper.
-class jasper($home, $email_address, $email_password, $first_name, $last_name,
-             $phone, $carrier, $location, $timezone) {
+class jasper(
+  $home, $email_address, $email_password, $first_name, $last_name, $phone,
+  $carrier, $location, $timezone
+) {
 
   require ::jasper::cmuclmtk
   require ::jasper::pocketsphinx
