@@ -1,0 +1,12 @@
+---
+jasper::cmuclmtk::dependencies:
+  - curl
+  - espeak
+  - gcc
+  - libtool
+  - make
+
+jasper::pocketsphinx::dependencies:
+  - bison
+  - curl
+  - make

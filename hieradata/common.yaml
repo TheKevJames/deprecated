@@ -1,0 +1,9 @@
+---
+jasper::cmuclmtk::dependencies:
+  - curl
+  - espeak
+  - gcc
+  - gcc-c++
+  - gcc-fortran
+  - libtool
+  - make
