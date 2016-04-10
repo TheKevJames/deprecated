@@ -86,8 +86,8 @@ class jasper::cmuclmtk($dependencies) {
   }
 
   file { '/usr/local/bin/m2m-aligner':
-    ensure  => link,
-    target  => '/opt/m2m-aligner/m2m-aligner',
+    ensure => link,
+    target => '/opt/m2m-aligner/m2m-aligner',
   }
 
   exec { 'retrieve_phonetisaurus_tarball':
@@ -105,8 +105,8 @@ class jasper::cmuclmtk($dependencies) {
   }
 
   file { '/usr/local/bin/phonetisaurus-g2p':
-    ensure  => link,
-    target  => '/opt/phonetisaurus-0.7.8/phonetisaurus-g2p',
+    ensure => link,
+    target => '/opt/phonetisaurus-0.7.8/phonetisaurus-g2p',
   }
 
   exec { 'retrieve_g014b2b_tarball':
