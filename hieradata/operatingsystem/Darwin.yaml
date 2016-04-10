@@ -5,8 +5,3 @@ jasper::cmuclmtk::dependencies:
   - gcc
   - libtool
   - make
-
-jasper::pocketsphinx::dependencies:
-  - bison
-  - curl
-  - make

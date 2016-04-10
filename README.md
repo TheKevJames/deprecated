@@ -12,15 +12,17 @@ Simply
 
 ```puppet
 class { '::jasper':
+    home           => '/home/kevin',
+    email_address  => 'KevinJames@thekev.in',
+    email_password => 'passw0rd',
+    first_name     => 'kevin',
+    last_name      => 'james',
+    phone          => '2058675309'
+    carrier        => 'vmobile.ca',
+    location       => 'Toronto',
+    timezone       => 'America/Toronto',
 }
+
 ```
 
 to make sure jasper is installed.
-
-## Configuration
-
-In addition to the above value set for `ngrok`, you can also use
-hiera to override the following defaults:
-
-```yaml
-```

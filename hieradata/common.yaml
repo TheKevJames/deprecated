@@ -7,3 +7,8 @@ jasper::cmuclmtk::dependencies:
   - gcc-fortran
   - libtool
   - make
+
+jasper::pocketsphinx::dependencies:
+  - bison
+  - curl
+  - make
