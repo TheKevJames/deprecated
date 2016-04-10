@@ -29,7 +29,7 @@ class jasper(
   } ->
   file { "${home}/.config/jasper/profile.yml":
     ensure  => file,
-    content => template('profile.erb'),
+    content => template('jasper/profile.erb'),
     mode    => '0644',
   }
 
