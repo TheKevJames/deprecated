@@ -1,8 +1,13 @@
+# Set up subversion config directory for a given user.
 class subversion::user($home) {
 
+  include ::osbase
   include ::subversion
 
-  file { "${home}/.config/subversion": ensure => directory } ->
+  file { "${home}/.config/subversion":
+    ensure  => directory,
+    require => File["${home}/.config"],
+  } ->
   file { "${home}/.config/subversion/config":
     ensure  => file,
     content => template('subversion/config.erb'),
@@ -21,7 +26,7 @@ class subversion::user($home) {
   #     svn --config-dir "$XDG_CONFIG_HOME"/subversion
   #     export SUBVERSION_HOME=$XDG_CONFIG_HOME/subversion
   file { "${home}/.subversion":
-    ensure => link
+    ensure => link,
     target => "${home}/.config/subversion",
   }
 
