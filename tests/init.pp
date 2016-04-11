@@ -1,5 +1,5 @@
 class { '::jasper':
-    home           => '/home/ubuntu',
+    home           => '/root',
     email_address  => 'test@email.com',
     email_password => 'passw0rd',
     first_name     => 'john',
