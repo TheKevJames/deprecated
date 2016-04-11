@@ -1,8 +1,12 @@
 class subversion::user($home) {
 
+  include ::osbase
   include ::subversion
 
-  file { "${home}/.config/subversion": ensure => directory } ->
+  file { "${home}/.config/subversion":
+    ensure  => directory,
+    require => File["${home}/.config"],
+  } ->
   file { "${home}/.config/subversion/config":
     ensure  => file,
     content => template('subversion/config.erb'),
