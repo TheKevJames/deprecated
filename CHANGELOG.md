@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.3.0
+- feature: support XDG
+- feature: use ensure_packages for compatibility
+- meta: enable matrix testing
+
 ## 1.2.0
 - minor: parameterize base class
 
