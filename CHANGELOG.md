@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.1
+- fix: set optional base class params to undef (support for puppet <4.3.2)
+
 ## 1.3.0
 - feature: support XDG
 - feature: use ensure_packages for compatibility
