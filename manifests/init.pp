@@ -7,7 +7,6 @@ class jasper(
   require ::jasper::cmuclmtk
   require ::jasper::pocketsphinx
   require ::git
-  # TODO: require python2 + pip
 
   class { '::osbase': home => $home }
 
