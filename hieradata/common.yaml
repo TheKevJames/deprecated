@@ -1,3 +1,5 @@
 ---
 neovim::dependencies: nil
 neovim::packages: neovim
+
+osbase::home: "%{alias('neovim::home')}"
