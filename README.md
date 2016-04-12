@@ -1,6 +1,6 @@
 # puppet-vault
 
-A Puppet Module to install and manage Vault.
+A Puppet Module to install and manage [Vault](https://www.vaultproject.io/).
 
 puppet-vault is available on the
 [Puppet Forge](https://forge.puppetlabs.com/thekevjames/vault).
