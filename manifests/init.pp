@@ -1,12 +1,17 @@
+# Install and configure consul. Run consul as service.
 class consul (
+  $dependencies,
   $service_location,
   $service_template,
   $url,
   $home,
   $datacenter,
-  $infrastructure,
+  $atlas_infrastructure,
+  $atlas_token,
   $server
 ) {
+
+  ensure_packages($dependencies, { ensure => latest })
 
   File { owner => root, group => root }
 
@@ -25,12 +30,15 @@ class consul (
     notify => Service['consul'],
   }
 
-  file { '/etc/consul.d': ensure  => directory } ->
-  file { '/etc/consul.d/config.json':
-    ensure  => file,
-    content => template('consul/server.erb'),
-    mode    => '0644',
-    notify  => Service['consul'],
+  file { '/etc/consul.d': ensure  => directory }
+  if $server {
+    file { '/etc/consul.d/config.json':
+      ensure  => file,
+      content => template('consul/server.erb'),
+      mode    => '0644',
+      require => File['/etc/consul.d'],
+      notify  => Service['consul'],
+    }
   }
 
   file { $service_location:
@@ -39,8 +47,8 @@ class consul (
     mode    => '0644',
   } ~>
   service { 'consul':
-    ensure  => running,
-    enable  => true,
+    ensure => running,
+    enable => true,
   }
 
 }

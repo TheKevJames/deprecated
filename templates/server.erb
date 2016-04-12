@@ -5,7 +5,7 @@
     "enable_syslog": true,
     "log_level": "INFO",
     "ui": true,
-    "atlas_infrastructure": "<%= scope['consul::infrastructure'] %>",
+    "atlas_infrastructure": "<%= scope['consul::atlas_infrastructure'] %>",
     "atlas_join": true,
     "atlas_token": "<%= scope['consul::atlas_token'] %>"
 }
