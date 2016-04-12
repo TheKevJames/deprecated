@@ -1,8 +1,9 @@
 # Set up subversion config directory for a given user.
 class subversion::user($home) {
 
-  include ::osbase
   include ::subversion
+
+  class { '::osbase': home => $home }
 
   file { "${home}/.config/subversion":
     ensure  => directory,
