@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.2
+- fix: fix puppet 4.3.{0,1} support
+- meta: add test apply
+
 ## 1.3.1
 - fix: set optional base class params to undef (support for puppet <4.3.2)
 
