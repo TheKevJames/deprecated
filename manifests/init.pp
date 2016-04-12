@@ -1,3 +1,4 @@
+# Install and configure vault. Run vault as a service.
 class vault ($config, $service_location, $service_template, $url) {
 
   ensure_packages(['curl', 'unzip'], { ensure => latest })
@@ -33,8 +34,8 @@ class vault ($config, $service_location, $service_template, $url) {
     mode    => '0644',
   } ~>
   service { 'vault':
-    ensure  => running,
-    enable  => true,
+    ensure => running,
+    enable => true,
   }
 
 }
