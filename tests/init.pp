@@ -1,1 +1,2 @@
-include ::vault
+class { '::vault':
+}
