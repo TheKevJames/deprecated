@@ -1,6 +1,6 @@
 class neovim($dependencies, $packages, $home) {
 
-  include ::osbase
+  ensure_resource(file, "${home}/.config", { ensure => 'directory' })
 
   file { "${home}/.config/nvim":
     ensure  => directory,
@@ -21,14 +21,12 @@ class neovim($dependencies, $packages, $home) {
     mode    => '0644',
     require => File["${home}/.config/nvim/ftdetect"],
   }
-
   file { "${home}/.config/nvim/ftdetect/markdown.vim":
     ensure  => present,
     source  => 'puppet:///modules/neovim/markdown.vim',
     mode    => '0644',
     require => File["${home}/.config/nvim/ftdetect"],
   }
-
   file { "${home}/.config/nvim/ftdetect/ruby.vim":
     ensure  => present,
     source  => 'puppet:///modules/neovim/ruby.vim',
