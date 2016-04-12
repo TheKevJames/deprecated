@@ -1,0 +1,24 @@
+{
+  "name": "thekevjames-consul",
+  "version": "0.0.1",
+  "author": "thekevjames",
+  "summary": "Hashicorp Consul management",
+  "license": "Apache-2.0",
+  "source": "https://github.com/thekevjames/puppet-consul.git",
+  "project_page": "https://github.com/thekevjames/puppet-consul",
+  "issues_url": "https://github.com/thekevjames/puppet-consul/issues",
+  "dependencies": [
+    {"name": "puppetlabs/stdlib", "version_requirement": ">= 4.2.0 < 5.0.0"}
+  ],
+  "data_provider": "hiera",
+  "operatingsystem_support": [
+    { "operatingsystem": "CentOS" },
+    { "operatingsystem": "Darwin" },
+    { "operatingsystem": "Debian" },
+    { "operatingsystem": "Fedora" },
+    { "operatingsystem": "Ubuntu" }
+  ],
+  "requirements": [
+    { "name": "puppet", "version_requirement": ">= 4.0.0 < 5.0.0" }
+  ]
+}

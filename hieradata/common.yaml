@@ -1,0 +1,5 @@
+---
+consul::service_location: /etc/systemd/system/consul.service
+consul::service_template: consul/consul.systemd.erb
+
+consul::url: https://releases.hashicorp.com/consul/0.6.4/consul_0.6.4_linux_amd64.zip
