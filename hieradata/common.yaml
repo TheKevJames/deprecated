@@ -4,3 +4,5 @@ bazaar::mergetool: vimdiff
 bazaar::tabwidth: 4
 
 bazaar::packages: bzr
+
+osbase::home: "%{alias('bazaar::user::home')}"

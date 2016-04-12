@@ -1,7 +1,7 @@
 class bazaar::user($home, $fullname, $email) {
 
   include ::bazaar
-  class { '::osbase': home => $home }
+  include ::osbase
 
   file { "${home}/.config/bazaar":
     ensure  => directory,
