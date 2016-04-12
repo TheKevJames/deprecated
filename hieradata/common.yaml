@@ -3,6 +3,5 @@ bazaar::editor: vim
 bazaar::mergetool: vimdiff
 bazaar::tabwidth: 4
 
+bazaar::package_index: []
 bazaar::packages: bzr
-
-osbase::home: "%{alias('bazaar::user::home')}"

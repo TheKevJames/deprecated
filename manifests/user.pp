@@ -1,7 +1,9 @@
+# Configures bazaar for a user.
 class bazaar::user($home, $fullname, $email) {
 
   include ::bazaar
-  include ::osbase
+
+  ensure_resource(file, "${home}/.config", { ensure => 'directory' })
 
   file { "${home}/.config/bazaar":
     ensure  => directory,
