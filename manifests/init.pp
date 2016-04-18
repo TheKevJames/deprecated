@@ -1,7 +1,7 @@
 # Install and configure neovim.
 class neovim($dependencies, $packages, $home) {
 
-  ensure_resource(file, "${home}/.config", { ensure => 'directory' })
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   file { "${home}/.config/nvim":
     ensure  => directory,
