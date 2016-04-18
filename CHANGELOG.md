@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0
+- bugfix: ensure config folder exists
+- meta: add tests
+
 ## 1.2.1
 - bugfix: fix dependency chain
 
