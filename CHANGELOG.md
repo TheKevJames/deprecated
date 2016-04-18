@@ -1,27 +1,31 @@
 # CHANGELOG
 
+## 1.5.0
+- bugfix: ensure config folder exists
+- meta: add tests
+
 ## 1.4.1
-- .pp files are parsed as ruby
+- feature: .pp files are parsed as ruby
 
 ## 1.4.0
-- fix parser validation for 3.8
-- split filetype configs into ftdetect/ files
+- bugfix: fix parser validation for 3.8
+- feature: split filetype configs into ftdetect/ files
 
 ## 1.3.1
-- bugfix for opensuse: depend on target, not function
+- bugfix: depend on target, not function (OpenSuSE)
 
 ## 1.3.0
-- install from source on OpenSuSE
+- feature: install from source on OpenSuSE
 
 ## 1.2.1
-- bugfix for ubuntu: only update package control on source change
-- spacing fixes
+- bugfix: only update package control on source change in Ubuntu
+- meta: spacing fixes
 
 ## 1.2.0
-- bugixes for Ubuntu installation
+- bugfix: work properly on Ubuntu
 
 ## 1.1.0
-- bugfixes for puppet parser validation
+- bugfix: better puppet parser validation
 
 ## 1.0.0
 - initial release
