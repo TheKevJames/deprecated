@@ -35,4 +35,6 @@ to override the following defaults:
 bazaar::editor: vim
 bazaar::mergetool: vimdiff
 bazaar::tabwidth: 4
+
+bazaar::packages: bzr
 ```
