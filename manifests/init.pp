@@ -1,8 +1,9 @@
-class irssi($home, $fullname, $username, $password) {
+class irssi($dependencies, $packages, $home, $fullname, $username, $password) {
 
   ensure_resource(file, "${home}/.config", { ensure => directory })
 
-  ensure_packages(['curl', 'irssi'], { ensure => latest })
+  ensure_packages($dependencies, { ensure => latest })
+  ensure_packages($packages, { ensure => latest })
 
   file { "${home}/.config/irssi":
     ensure  => directory,
