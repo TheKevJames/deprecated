@@ -4,5 +4,9 @@ version: 4
 datadir: hieradata
 
 hierarchy:
+  - name: OS
+    backend: yaml
+    path: operatingsystem/%{::operatingsystem}
+
   - name: common
     backend: yaml
