@@ -3,7 +3,7 @@ class bazaar::user($home, $fullname, $email) {
 
   include ::bazaar
 
-  ensure_resource(file, "${home}/.config", { ensure => 'directory' })
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   file { "${home}/.config/bazaar":
     ensure  => directory,
