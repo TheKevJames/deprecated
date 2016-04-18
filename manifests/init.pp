@@ -1,6 +1,6 @@
 class irssi($home, $fullname, $username, $password) {
 
-  class { '::osbase': home => $home }
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   ensure_packages(['curl', 'irssi'], { ensure => latest })
 
