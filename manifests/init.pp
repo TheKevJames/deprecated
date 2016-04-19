@@ -8,7 +8,7 @@ class jasper(
   require ::jasper::pocketsphinx
   require ::git
 
-  class { '::osbase': home => $home }
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   vcsrepo { '/opt/jasper':
     ensure   => present,
