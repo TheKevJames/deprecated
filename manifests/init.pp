@@ -1,3 +1,4 @@
+# Install and configure irssi.
 class irssi($dependencies, $packages, $home, $fullname, $username, $password) {
 
   ensure_resource(file, "${home}/.config", { ensure => directory })
