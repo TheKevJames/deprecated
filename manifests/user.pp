@@ -29,6 +29,7 @@ class subversion::user($home) {
   file { "${home}/.subversion":
     ensure => link,
     target => "${home}/.config/subversion",
+    force  => true,
   }
 
 }
