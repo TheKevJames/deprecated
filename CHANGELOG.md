@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.4
+- bugfix: force overwrite ~/.subversion with link
+
 ## 1.3.3
 - bugfix: remove osbase dependency
 
