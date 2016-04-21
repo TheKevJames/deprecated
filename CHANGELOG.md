@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.0.5
+- bugfix: move extras to ~/.config/terminal/extras/*.sh
+
 ## 1.0.4
 - bugfix: fix extras.sh inclusion path
 
