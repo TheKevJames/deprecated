@@ -19,19 +19,20 @@ class { '::terminal::zsh':
 }
 ```
 
-to make sure bash and zsh are installed and configured.
+to make sure bash and zsh are installed and configured. Feel free to use both
+if you need both terminals configured!
 
-You can also use
+If you're an OSX user that wants to avoid homebrew+github rate limiting, set
 
 ```puppet
-class { '::terminal':
-  home => '/home/kevin',
+class { '::terminal::zsh':
+  home                      => '/home/kevin',
+  homebrew_github_api_token => 'IMASECRETSSSHDONTTELLANYONE',
 }
 ```
 
-to get only the common configuration stuff... but it won't do you much good
-without a specific terminal config. If there's some reason you want to use the
-base class but not `::bash` or `::zsh`, let me know or submit a PR to fix it!
+or, of course, use `::terminal::bash`.
+
 
 ## Configuration
 
