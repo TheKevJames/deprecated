@@ -1,0 +1,16 @@
+unalias -m "*"
+
+source ~/.config/terminal/common.sh
+
+source ~/.config/zsh/colors.sh
+source ~/.config/zsh/history.sh
+source ~/.config/zsh/prompt.sh
+
+source ~/.config/zsh/completion.sh
+source ~/.config/zsh/keys.sh
+
+source ~/.config/terminal/extras.sh
+
+setopt multios
+setopt notify
+setopt no_beep

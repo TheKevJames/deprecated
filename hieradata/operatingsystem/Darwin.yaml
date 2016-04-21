@@ -1,0 +1,6 @@
+---
+terminal::os: Darwin
+
+# TODO: keep bash up to date on Darwin
+terminal::bash::packages:
+  - bash-completion
