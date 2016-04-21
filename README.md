@@ -40,11 +40,11 @@ In addition to the above values set for `terminal::*`, you can also use
 hiera to override the following defaults:
 
 ```yaml
-terminal::os: Linux
-
+terminal::bash:os: Linux
 terminal::bash::packages:
   - bash
   - bash-completion
 
+terminal::zsh:os: Linux
 terminal::zsh::packages: zsh
 ```
