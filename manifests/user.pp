@@ -3,7 +3,7 @@ class subversion::user($home) {
 
   include ::subversion
 
-  class { '::osbase': home => $home }
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   file { "${home}/.config/subversion":
     ensure  => directory,
