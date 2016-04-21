@@ -20,7 +20,7 @@ class terminal::bash($os, $packages, $home, $homebrew_github_api_token = undef) 
 
   file { "${home}/.bashrc":
     ensure => link,
-    target => "${home}/.config/terminal/bashrc",
+    target => "${home}/.config/terminal/bash/bashrc",
   }
 
 }
