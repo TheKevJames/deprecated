@@ -1,8 +1,8 @@
 ---
-terminal::os: Linux
-
+terminal::bash::os: Linux
 terminal::bash::packages:
   - bash
   - bash-completion
 
+terminal::zsh::os: Linux
 terminal::zsh::packages: zsh
