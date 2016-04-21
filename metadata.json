@@ -1,6 +1,6 @@
 {
   "name": "thekevjames-terminal",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "thekevjames",
   "summary": "Terminal management -- supports bash and zsh",
   "license": "Apache-2.0",

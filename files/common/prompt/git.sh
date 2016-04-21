@@ -1,7 +1,7 @@
 function updateVars() {
 	unset CURRENT_STATUS
 
-	GET_STATUS=$(python ~/.managed/terminal/prompt/git-status.py)
+	GET_STATUS=$(python ~/.config/terminal/prompt/git-status.py)
 	if [ -n "$BASH_VERSION" ]; then
 		IFS=', ' read -a CURRENT_STATUS <<< "$GET_STATUS"
 		STATUS_BRANCH="${CURRENT_STATUS[0]}"

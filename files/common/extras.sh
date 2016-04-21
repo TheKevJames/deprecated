@@ -1,3 +1,3 @@
-for sh in "$HOME"/.managed/extras/*.sh; do
+for sh in "$HOME"/.config/extras/*.sh; do
     [ -r "$sh" ] && . "$sh"
 done

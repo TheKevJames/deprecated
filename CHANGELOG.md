@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.0.4
+- bugfix: fix extras.sh inclusion path
+
 ## 1.0.3
 - bugfix: fix git prompt
 
