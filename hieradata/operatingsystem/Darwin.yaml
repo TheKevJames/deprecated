@@ -3,4 +3,16 @@ terminal::bash::os: Darwin
 terminal::bash::packages:
   - bash-completion
 
+terminal::utilities::os: Darwin
+terminal::utilities::packages:
+  - autoconf
+  - automake
+  - curl
+  - jq
+  - make
+  - pkg-config
+  - the_silver_searcher
+  - unzip
+  - wget
+
 terminal::zsh::os: Darwin

@@ -1,0 +1,12 @@
+---
+terminal::utilities::packages:
+  - autoconf
+  - automake
+  - curl
+  - jq
+  - less
+  - make
+  - pkg-config
+  - silversearcher-ag
+  - unzip
+  - wget
