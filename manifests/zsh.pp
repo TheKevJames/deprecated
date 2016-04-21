@@ -20,7 +20,7 @@ class terminal::zsh($os, $packages, $home, $homebrew_github_api_token = undef) {
 
   file { "${home}/.zshrc":
     ensure => link,
-    target => "${home}/.config/terminal/bash/zshrc",
+    target => "${home}/.config/zsh/zshrc",
   }
 
 }
