@@ -8,9 +8,9 @@ define terminal($os, $home, $homebrew_github_api_token) {
     source  => 'puppet:///modules/terminal/common/prompt',
     require => File["${home}/.config/terminal"],
   })
-  ensure_resource(file, "${home}/.config/terminal/alias.sh", {
+  ensure_resource(file, "${home}/.config/terminal/aliases.sh", {
     ensure  => present,
-    source  => 'puppet:///modules/terminal/common/alias.sh',
+    source  => 'puppet:///modules/terminal/common/aliases.sh',
     require => File["${home}/.config/terminal"],
   })
   ensure_resource(file, "${home}/.config/terminal/common.sh", {
