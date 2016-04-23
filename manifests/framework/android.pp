@@ -8,9 +8,9 @@ class devbox::framework::android {
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-android.sh":
     ensure  => file,
-    content => template('framework/android/env.erb'),
+    content => template('devbox/framework/android/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
 }

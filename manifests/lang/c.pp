@@ -15,9 +15,9 @@ class devbox::lang::c($dependencies, $packages) {
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-c.sh":
     ensure  => file,
-    content => template('lang/c/env.erb'),
+    content => template('devbox/lang/c/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
 }

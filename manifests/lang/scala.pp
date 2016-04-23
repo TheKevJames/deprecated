@@ -8,9 +8,9 @@ class devbox::lang::scala {
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-scala.sh":
     ensure  => file,
-    content => template('lang/scala/env.erb'),
+    content => template('devbox/lang/scala/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
 }

@@ -1,3 +1,3 @@
 class { '::devbox':
-  home => '/home/ubuntu',
+  home => '/root',
 }

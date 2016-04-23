@@ -7,9 +7,9 @@ class devbox::lang::java($packages) {
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-java.sh":
     ensure  => file,
-    content => template('lang/java/env.erb'),
+    content => template('devbox/lang/java/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
 }

@@ -37,16 +37,16 @@ class devbox::lang::python(
   }
 
   file { '/usr/bin/python':
-    ensure  => link,
-    target  => "/usr/bin/python${default_version}",
-    owner   => root,
-    group   => root,
+    ensure => link,
+    target => "/usr/bin/python${default_version}",
+    owner  => root,
+    group  => root,
   }
   file { '/usr/bin/pip':
-    ensure  => link,
-    target  => "/usr/bin/pip${default_version}",
-    owner   => root,
-    group   => root,
+    ensure => link,
+    target => "/usr/bin/pip${default_version}",
+    owner  => root,
+    group  => root,
   }
 
   ensure_packages($pip_packages, {
@@ -55,10 +55,10 @@ class devbox::lang::python(
     require  => [Exec['install_pip2'], Exec['install_pip3']],
   })
 
-  file { '/etc/pylintrc',
-    ensure  => present,
-    source  => 'puppet:///modules/devbox/lang/python/pylintrc',
-    mode    => '0644',
+  file { '/etc/pylintrc':
+    ensure => present,
+    source => 'puppet:///modules/devbox/lang/python/pylintrc',
+    mode   => '0644',
   }
 
   file { "${devbox::home}/.config/python":
@@ -68,44 +68,44 @@ class devbox::lang::python(
   file { "${devbox::home}/.config/python/virtualenvs": ensure => directory } ->
   file { "${devbox::home}/.config/python/virtualenvs/hooks": ensure => directory }
   file { "${devbox::home}/.config/python/virtualenvs/hooks/postactivate":
-    ensure  => file,
-    content => template('lang/python/virtualenv/postactivate'),
+    ensure  => present,
+    source  => 'puppet:///modules/devbox/lang/python/virtualenv/postactivate',
     mode    => '0644',
     require => File["${devbox::home}/.config/python/virtualenvs/hooks"],
   }
   file { "${devbox::home}/.config/python/virtualenvs/hooks/postdeactivate":
-    ensure  => file,
-    content => template('lang/python/virtualenv/postdeactivate'),
+    ensure  => present,
+    source  => 'puppet:///modules/devbox/lang/python/virtualenv/postdeactivate',
     mode    => '0644',
     require => File["${devbox::home}/.config/python/virtualenvs/hooks"],
   }
   file { "${devbox::home}/.config/python/virtualenvs/hooks/postmkvirtualenv":
-    ensure  => file,
-    content => template('lang/python/virtualenv/postmkvirtualenv'),
+    ensure  => present,
+    source  => 'puppet:///modules/devbox/lang/python/virtualenv/postmkvirtualenv',
     mode    => '0644',
     require => File["${devbox::home}/.config/python/virtualenvs/hooks"],
   }
 
   file { "${devbox::home}/.pypirc":
     ensure  => file,
-    content => template('lang/python/pypirc.erb'),
+    content => template('devbox/lang/python/pypirc.erb'),
     mode    => '0644',
   }
 
   ensure_resource(file, ["${devbox::home}/.config/terminal", "${devbox::home}/.config/terminal/extras"], { ensure => directory })
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-python.sh":
     ensure  => file,
-    content => template('lang/python/env.erb'),
+    content => template('devbox/lang/python/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
-  file { '/etc/pythonstartup',
+  file { '/etc/pythonstartup':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/startup2.py',
     mode   => '0755',
   }
-  file { '/etc/python3startup',
+  file { '/etc/python3startup':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/startup3.py',
     mode   => '0755',
