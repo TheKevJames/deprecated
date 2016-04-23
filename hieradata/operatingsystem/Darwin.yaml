@@ -1,2 +1,9 @@
 ---
-terminal::bash::os: Darwin
+devbox::lang::c::packages:
+  - gcc
+  - llvm
+  - valgrind
+
+devbox::lang::go::command: /usr/local/bin/go
+
+devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh

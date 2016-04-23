@@ -1,0 +1,7 @@
+---
+devbox::lang::ocaml::packages:
+  - m4
+  - ocaml
+  - ocaml-camlp4
+  - ocaml-camlp4-devel
+  - ocaml-ocamldoc

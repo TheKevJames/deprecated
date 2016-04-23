@@ -11,16 +11,10 @@ puppet-devbox is available on the
 Simply
 
 ```puppet
-class { '::devbox':
+devbox::home = '/home/kevin'
+
+class { '::devbox::lang::python':
 }
 ```
 
 to make your box a _devbox_.
-
-## Configuration
-
-In addition to the above values set for `devbox`, you can also use
-hiera to override the following defaults:
-
-```yaml
-```

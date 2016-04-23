@@ -1,2 +1,51 @@
 ---
-terminal::bash::os: Linux
+devbox::lang::c::dependencies: curl
+devbox::lang::c::packages:
+  - gcc
+  - gcc-c++
+  - gcc-fortran
+  - llvm-clang
+  - valgrind
+
+devbox::lang::clojure::dependencies: curl
+
+devbox::lang::go::command: /usr/bin/go
+devbox::lang::go::packages: go
+
+devbox::lang::java::packages:
+  - java-1_8_0-openjdk
+  - java-1_8_0-openjdk-devel
+  - java-1_8_0-openjdk-headless
+
+devbox::lang::javascript::packages:
+  - nodejs
+  - npm
+
+devbox::lang::php::packages:
+  - php-apc
+  - php5
+  - php5-cli
+  - php5-curl
+  - php5-dev
+  - php5-gd
+  - php5-json
+  - php5-mysql
+
+devbox::lang::python::dependencies: curl
+devbox::lang::python::packages:
+  - python
+  - python3
+devbox::lang::python::pip_packages:
+  - ipython
+  - pylint
+  - virtualenvwrapper
+
+devbox::lang::ocaml::dependencies: curl
+devbox::lang::ocaml::packages:
+  - m4
+  - ocaml
+
+devbox::lang::python::virtualenvsource: /usr/bin/virtualenvwrapper.sh
+
+devbox::lang::ruby::gem_packages: bundler
+devbox::lang::ruby::packages: ruby
