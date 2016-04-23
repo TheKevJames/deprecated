@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.2
+- bugfix: fix alias.sh pathing
+
 ## 1.1.1
 - feature: make pathing more explicit for better module interop
 
