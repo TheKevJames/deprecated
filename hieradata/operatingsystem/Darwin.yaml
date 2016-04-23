@@ -7,3 +7,5 @@ devbox::lang::c::packages:
 devbox::lang::go::command: /usr/local/bin/go
 
 devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
+
+devbox::update_packages_command: /usr/local/bin/brew update

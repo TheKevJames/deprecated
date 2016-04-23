@@ -14,7 +14,7 @@ class devbox::lang::c($dependencies, $packages) {
   file { '/usr/bin/c':
     owner => root,
     group => root,
-    mode => '0755',
+    mode  => '0755',
   }
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-c.sh":

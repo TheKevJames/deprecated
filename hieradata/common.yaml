@@ -13,13 +13,12 @@ devbox::lang::go::command: /usr/bin/go
 devbox::lang::go::packages: go
 
 devbox::lang::java::packages:
-  - java-1_8_0-openjdk
-  - java-1_8_0-openjdk-devel
-  - java-1_8_0-openjdk-headless
+  - java-1_7_0-openjdk
+  - java-1_7_0-openjdk-devel
+  - java-1_7_0-openjdk-headless
 
-devbox::lang::javascript::packages:
-  - nodejs
-  - npm
+devbox::lang::javascript::dependencies: curl
+devbox::lang::javascript::packages: nodejs
 
 devbox::lang::php::packages:
   - php-apc
@@ -49,3 +48,9 @@ devbox::lang::python::virtualenvsource: /usr/bin/virtualenvwrapper.sh
 
 devbox::lang::ruby::gem_packages: bundler
 devbox::lang::ruby::packages: ruby
+
+devbox::tool::docker::packages: docker
+
+devbox::tool::heroku::dependencies: curl
+
+devbox::update_packages_command:

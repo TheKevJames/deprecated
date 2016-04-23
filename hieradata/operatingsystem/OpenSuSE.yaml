@@ -5,3 +5,5 @@ devbox::lang::ocaml::packages:
   - ocaml-camlp4
   - ocaml-camlp4-devel
   - ocaml-ocamldoc
+
+devbox::update_packages_command: /usr/bin/zypper ref
