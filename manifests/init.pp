@@ -10,35 +10,35 @@ define terminal($os, $home, $homebrew_github_api_token) {
   })
   ensure_resource(file, "${home}/.config/terminal/alias.sh", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/alias.sh",
+    source  => 'puppet:///modules/terminal/common/alias.sh',
     require => File["${home}/.config/terminal"],
   })
   ensure_resource(file, "${home}/.config/terminal/common.sh", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/common.sh",
+    source  => 'puppet:///modules/terminal/common/common.sh',
     require => File["${home}/.config/terminal"],
   })
   ensure_resource(file, "${home}/.config/terminal/extras.sh", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/extras.sh",
+    source  => 'puppet:///modules/terminal/common/extras.sh',
     require => File["${home}/.config/terminal"],
   })
   ensure_resource(file, "${home}/.inputrc", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/inputrc",
+    source  => 'puppet:///modules/terminal/common/inputrc',
   })
   ensure_resource(file, "${home}/.config/terminal/path.sh", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/path.sh",
+    source  => 'puppet:///modules/terminal/common/path.sh',
     require => File["${home}/.config/terminal"],
   })
   ensure_resource(file, "${home}/.profile", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/profile",
+    source  => 'puppet:///modules/terminal/common/profile',
   })
   ensure_resource(file, "${home}/.config/terminal/var.sh", {
     ensure  => present,
-    source  => "puppet:///modules/terminal/common/var.sh",
+    source  => 'puppet:///modules/terminal/common/var.sh',
     require => File["${home}/.config/terminal"],
   })
 
