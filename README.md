@@ -52,6 +52,19 @@ terminal::bash::packages:
   - bash
   - bash-completion
 
+terminal::utilities::os: Linux
+terminal::utilities::packages:
+  - autoconf
+  - automake
+  - curl
+  - jq
+  - less
+  - make
+  - pkg-config
+  - the_silver_searcher
+  - unzip
+  - wget
+
 terminal::zsh:os: Linux
 terminal::zsh::packages: zsh
 ```
