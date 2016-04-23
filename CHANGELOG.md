@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.2.2
+- bugfix: fix tmux right-status query nesting
+
 ## 1.2.1
 - bugfix: fix tmux right-status quoting
 
