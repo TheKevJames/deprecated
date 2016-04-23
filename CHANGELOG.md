@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.0.2
+- bugfix: fix python startup script paths
+
 ## 1.0.1
 - bugfix: fix root permissions
 
