@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.0
+- feature: add terminal::utilities class for installing common utils
+
 ## 1.0.5
 - bugfix: move extras to ~/.config/terminal/extras/*.sh
 
