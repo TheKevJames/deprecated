@@ -1,26 +1,51 @@
 # Configure common terminal settings.
 define terminal($os, $home, $homebrew_github_api_token) {
 
-  ensure_resource(file, "${home}/.config", { ensure => directory })
-  ensure_resource(file, "${home}/.config/terminal", {
+  ensure_resource(file, ["${home}/.config", "${home}/.config/terminal", "${home}/.config/terminal/extras"], { ensure => directory })
+  ensure_resource(file, "${home}/.config/terminal/prompt", {
     ensure  => present,
     recurse => true,
-    source  => 'puppet:///modules/terminal/common',
-    require => File["${home}/.config"],
+    source  => 'puppet:///modules/terminal/common/prompt',
+    require => File["${home}/.config/terminal"],
   })
+  ensure_resource(file, "${home}/.config/terminal/alias.sh", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/alias.sh",
+    require => File["${home}/.config/terminal"],
+  })
+  ensure_resource(file, "${home}/.config/terminal/common.sh", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/common.sh",
+    require => File["${home}/.config/terminal"],
+  })
+  ensure_resource(file, "${home}/.config/terminal/extras.sh", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/extras.sh",
+    require => File["${home}/.config/terminal"],
+  })
+  ensure_resource(file, "${home}/.inputrc", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/inputrc",
+  })
+  ensure_resource(file, "${home}/.config/terminal/path.sh", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/path.sh",
+    require => File["${home}/.config/terminal"],
+  })
+  ensure_resource(file, "${home}/.profile", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/profile",
+  })
+  ensure_resource(file, "${home}/.config/terminal/var.sh", {
+    ensure  => present,
+    source  => "puppet:///modules/terminal/common/var.sh",
+    require => File["${home}/.config/terminal"],
+  })
+
   ensure_resource(file, "${home}/.config/terminal/os.sh", {
     ensure  => present,
     source  => "puppet:///modules/terminal/common/os/${os}.sh",
     require => File["${home}/.config/terminal"],
-  })
-
-  ensure_resource(file, "${home}/.inputrc", {
-    ensure => 'link',
-    target => "${home}/.config/terminal/inputrc",
-  })
-  ensure_resource(file, "${home}/.profile", {
-    ensure => 'link',
-    target => "${home}/.config/terminal/profile",
   })
 
   if $::operatingsystem == 'Darwin' and $homebrew_github_api_token {
@@ -28,7 +53,7 @@ define terminal($os, $home, $homebrew_github_api_token) {
       ensure  => present,
       mode    => '0755',
       content => "export HOMEBREW_GITHUB_API_TOKEN=${homebrew_github_api_token}",
-      require => File["${home}/.config/terminal"],
+      require => File["${home}/.config/terminal/extras"],
     })
   }
 

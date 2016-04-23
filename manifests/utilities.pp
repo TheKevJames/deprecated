@@ -13,7 +13,7 @@ class terminal::utilities($os, $packages, $home, $homebrew_github_api_token = un
     ensure  => present,
     mode    => '0755',
     content => "export PAGER=`which less`\nexport LESSHISTFILE=/dev/null",
-    require => File["${home}/.config/terminal"],
+    require => File["${home}/.config/terminal/extras"],
   }
 
 }
