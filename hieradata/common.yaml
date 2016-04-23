@@ -53,4 +53,9 @@ devbox::tool::docker::packages: docker
 
 devbox::tool::heroku::dependencies: curl
 
-devbox::update_packages_command:
+devbox::tool::screen::packages: screen
+
+devbox::tool::tmux::dependencies: [ ]
+devbox::tool::tmux::packages: tmux
+
+devbox::update_packages_command: [ ]

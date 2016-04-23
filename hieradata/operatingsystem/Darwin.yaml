@@ -8,4 +8,6 @@ devbox::lang::go::command: /usr/local/bin/go
 
 devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
 
+devbox::tool::tmux::dependencies: reattach-to-user-namespace
+
 devbox::update_packages_command: /usr/local/bin/brew update
