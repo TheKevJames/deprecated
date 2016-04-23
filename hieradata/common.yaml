@@ -53,6 +53,8 @@ devbox::tool::docker::packages: docker
 
 devbox::tool::heroku::dependencies: curl
 
+devbox::tool::screen::packages: screen
+
 devbox::tool::tmux::dependencies:
 devbox::tool::tmux::packages: tmux
 
