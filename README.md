@@ -22,6 +22,14 @@ class { '::terminal::zsh':
 to make sure bash and zsh are installed and configured. Feel free to use both
 if you need both terminals configured!
 
+To get some standard terminal utilities, simply
+
+```puppet
+class { '::terminal::utilities':
+  home => '/home/kevin',
+}
+```
+
 If you're an OSX user that wants to avoid homebrew+github rate limiting, set
 
 ```puppet
@@ -31,8 +39,7 @@ class { '::terminal::zsh':
 }
 ```
 
-or, of course, use `::terminal::bash`.
-
+for your subclasses.
 
 ## Configuration
 
