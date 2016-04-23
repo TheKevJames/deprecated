@@ -104,14 +104,7 @@ class devbox::lang::python(
 
   file { '/etc/pythonstart':
     ensure => present,
-    source => 'puppet:///modules/devbox/lang/python/startup2.py',
-    owner  => root,
-    group  => root,
-    mode   => '0644',
-  }
-  file { '/etc/python3start':
-    ensure => present,
-    source => 'puppet:///modules/devbox/lang/python/startup3.py',
+    source => 'puppet:///modules/devbox/lang/python/startup.py',
     owner  => root,
     group  => root,
     mode   => '0644',

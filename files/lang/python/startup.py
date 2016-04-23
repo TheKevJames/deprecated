@@ -4,7 +4,7 @@ import os
 import readline
 import rlcompleter
 
-HISTORY = os.path.expanduser('~/.local/share/python3/history')
+HISTORY = os.path.expanduser('~/.local/share/python/history')
 if not os.path.exists(HISTORY):
     open(HISTORY, 'a').close()
 
