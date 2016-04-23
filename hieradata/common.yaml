@@ -50,4 +50,6 @@ devbox::lang::python::virtualenvsource: /usr/bin/virtualenvwrapper.sh
 devbox::lang::ruby::gem_packages: bundler
 devbox::lang::ruby::packages: ruby
 
+devbox::tool::docker::packages: docker
+
 devbox::tool::heroku::dependencies: curl
