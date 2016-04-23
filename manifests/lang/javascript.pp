@@ -11,7 +11,7 @@ class devbox::lang::javascript($dependencies, $packages) {
     require => [Package[$dependencies], Package[$packages]],
   }
 
-  if $operatingsystem == 'Debian' and $operatingsystemrelease == '7' {
+  if $::operatingsystem == 'Debian' and $::operatingsystemrelease == '7' {
     exec { 'install_nodejs_sources':
       command => '/usr/bin/curl -sL https://deb.nodesource.com/setup_5.x | bash -',
       creates => '/etc/apt/sources.list.d/nodesource.list',
