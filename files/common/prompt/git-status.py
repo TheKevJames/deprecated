@@ -58,7 +58,7 @@ def main():
         clean = '1'
 
     remote = ''
-    branch = branch.strip()[11:]
+    branch = str(branch.decode('utf-8')).strip()[11:]
     if not branch:
         branch = Popen(
             ['git', 'rev-parse', '--short', 'HEAD'],
