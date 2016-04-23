@@ -14,7 +14,7 @@ class devbox::lang::clojure($dependencies) {
   file { '/usr/bin/lein':
     owner => root,
     group => root,
-    mode => '0755',
+    mode  => '0755',
   }
 
 }
