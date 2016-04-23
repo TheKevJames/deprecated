@@ -12,7 +12,6 @@
   ],
   "data_provider": "hiera",
   "operatingsystem_support": [
-    { "operatingsystem": "CentOS" },
     { "operatingsystem": "Darwin" },
     { "operatingsystem": "Debian" },
     { "operatingsystem": "Fedora" },

@@ -25,14 +25,14 @@ class devbox::lang::ruby($packages, $gem_packages) {
 
   file { "${devbox::home}/.local/share/ruby":
     ensure  => directory,
-    require => "${devbox::home}/.local/share",
+    require => File["${devbox::home}/.local/share"],
   }
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-ruby.sh":
     ensure  => file,
-    content => template('lang/ruby/env.erb'),
+    content => template('devbox/lang/ruby/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
 }

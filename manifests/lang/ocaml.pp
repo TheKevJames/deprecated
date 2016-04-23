@@ -14,9 +14,9 @@ class devbox::lang::ocaml($dependencies, $packages) {
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-ocaml.sh":
     ensure  => file,
-    content => template('lang/ocaml/env.erb'),
+    content => template('devbox/lang/ocaml/env.erb'),
     mode    => '0755',
-    require => "${devbox::home}/.config/terminal/extras",
+    require => File["${devbox::home}/.config/terminal/extras"],
   }
 
 }
