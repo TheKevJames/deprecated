@@ -11,6 +11,10 @@ class devbox::lang::clojure($dependencies) {
     creates => '/usr/bin/lein',
     require => Package[$dependencies],
   } ~>
-  file { '/usr/bin/lein': mode => '0755' }
+  file { '/usr/bin/lein':
+    owner => root,
+    group => root,
+    mode => '0755',
+  }
 
 }

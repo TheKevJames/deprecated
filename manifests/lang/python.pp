@@ -17,7 +17,7 @@ class devbox::lang::python(
   ensure_resource(file, ["${devbox::home}/.config"], { ensure => directory })
   ensure_resource(file, ["${devbox::home}/.local", "${devbox::home}/.local/share", "${devbox::home}/.local/share/python", "${devbox::home}/.local/share/python/virtualenvs"], { ensure => directory })
 
-  exec { 'retreive_pip':
+  exec { 'retrieve_pip':
     command => '/usr/bin/curl -L https://bootstrap.pypa.io/get-pip.py > /tmp/get-pip.py',
     creates => '/tmp/get-pip.py',
     require => Package[$dependencies],
@@ -27,13 +27,13 @@ class devbox::lang::python(
     command   => '/usr/bin/python2 /tmp/get-pip.py',
     creates   => '/usr/local/bin/pip',
     require   => Package[$packages],
-    subscribe => Exec['retreive_pip'],
+    subscribe => Exec['retrieve_pip'],
   }
   exec { 'install_pip3':
     command   => '/usr/bin/python3 /tmp/get-pip.py',
     creates   => '/usr/local/bin/pip',
     require   => Package[$packages],
-    subscribe => Exec['retreive_pip'],
+    subscribe => Exec['retrieve_pip'],
   }
 
   file { '/usr/bin/python':
@@ -58,6 +58,8 @@ class devbox::lang::python(
   file { '/etc/pylintrc':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/pylintrc',
+    owner  => root,
+    group  => root,
     mode   => '0644',
   }
 
@@ -103,11 +105,15 @@ class devbox::lang::python(
   file { '/etc/pythonstartup':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/startup2.py',
+    owner  => root,
+    group  => root,
     mode   => '0755',
   }
   file { '/etc/python3startup':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/startup3.py',
+    owner  => root,
+    group  => root,
     mode   => '0755',
   }
 

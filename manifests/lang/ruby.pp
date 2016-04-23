@@ -15,11 +15,15 @@ class devbox::lang::ruby($packages, $gem_packages) {
   file { '/etc/gemrc':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/ruby/gemrc',
+    owner  => root,
+    group  => root,
     mode   => '0644',
   }
   file { '/etc/irbrc':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/ruby/irbrc',
+    owner  => root,
+    group  => root,
     mode   => '0644',
   }
 

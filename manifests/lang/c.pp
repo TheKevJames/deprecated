@@ -11,7 +11,11 @@ class devbox::lang::c($dependencies, $packages) {
     creates => '/usr/bin/c',
     require => Package[$dependencies],
   } ~>
-  file { '/usr/bin/c': mode => '0755' }
+  file { '/usr/bin/c':
+    owner => root,
+    group => root,
+    mode => '0755',
+  }
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-c.sh":
     ensure  => file,
