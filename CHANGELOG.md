@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.0.3
+- meta: drop unused python3 startup script
+
 ## 1.0.2
 - bugfix: fix python startup script paths
 
