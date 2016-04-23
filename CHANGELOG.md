@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.1.0
+- feature: add tool::docker
+- feature: add tool::heroku
+- bugfix: update sources before installing
+
 ## 1.0.3
 - meta: drop unused python3 startup script
 
