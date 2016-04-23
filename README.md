@@ -35,4 +35,5 @@ include ::devbox::lang::ruby
 include ::devbox::lang::scala
 include ::devbox::tool::docker
 include ::devbox::tool::heroku
+include ::devbox::tool::tmux
 ```
