@@ -7,6 +7,7 @@ import sys
 
 SYMBOLS = {'ahead': '↑', 'behind': '↓'}
 
+
 def get_branch():
     branch, err = Popen(
         ['git', 'symbolic-ref', 'HEAD'],
@@ -27,7 +28,7 @@ def get_name_status():
     if 'fatal' in err.decode('utf-8'):
         sys.exit(0)
 
-    return name_status
+    return str(name_status.decode('utf-8'))
 
 def get_numbers(name_status):
     changed_files = [arg[0] for arg in name_status.splitlines()]
@@ -48,7 +49,7 @@ def get_numbers(name_status):
     return changed, conflicts, staged, untracked
 
 def main():
-    branch = get_branch()
+    branch = str(get_branch().decode('utf-8'))
     name_status = get_name_status()
 
     changed, nb_conflicts, nb_staged, nb_untracked = get_numbers(name_status)
@@ -58,31 +59,31 @@ def main():
         clean = '1'
 
     remote = ''
-    branch = str(branch.decode('utf-8')).strip()[11:]
+    branch = branch.strip()[11:]
     if not branch:
-        branch = Popen(
+        branch = str(Popen(
             ['git', 'rev-parse', '--short', 'HEAD'],
             stdout=PIPE
-        ).communicate()[0][:-1]
+        ).communicate()[0][:-1].decode('utf-8'))
     else:
-        remote_name = Popen(
-            ['git', 'config', 'branch.%s.remote' % branch],
+        remote_name = str(Popen(
+            ['git', 'config', 'branch.{}.remote'.format(branch)],
             stdout=PIPE
-        ).communicate()[0].strip()
+        ).communicate()[0].decode('utf-8').strip())
 
         if remote_name:
-            merge_name = Popen(
-                ['git', 'config', 'branch.%s.merge' % branch],
+            merge_name = str(Popen(
+                ['git', 'config', 'branch.{}.merge'.format(branch)],
                 stdout=PIPE
-            ).communicate()[0].strip()
+            ).communicate()[0].strip().decode('utf-8'))
 
             if remote_name == '.': # local
                 remote_ref = merge_name
             else:
-                remote_ref = 'refs/remotes/%s/%s' % (remote_name, merge_name[11:])
+                remote_ref = 'refs/remotes/{}/{}'.format(remote_name, merge_name[11:])
 
             revgit = Popen(
-                ['git', 'rev-list', '--left-right', '%s...HEAD' % remote_ref],
+                ['git', 'rev-list', '--left-right', '{}...HEAD'.format(remote_ref)],
                 stdout=PIPE,
                 stderr=PIPE
             )
@@ -98,9 +99,9 @@ def main():
             ahead = len([x for x in behead if x[0] == '>'])
             behind = len(behead) - ahead
             if behind:
-                remote += '%s%s' % (SYMBOLS['behind'], behind)
+                remote += '{}{}'.format(SYMBOLS['behind'], behind)
             if ahead:
-                remote += '%s%s' % (SYMBOLS['ahead'], ahead)
+                remote += '{}{}'.format(SYMBOLS['ahead'], ahead)
 
     out = ', '.join([
         str(branch),
