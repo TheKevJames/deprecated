@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.1
+- feature: make pathing more explicit for better module interop
+
 ## 1.1.0
 - feature: add terminal::utilities class for installing common utils
 
