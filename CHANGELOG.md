@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.3
+- bugfix: fix git prompt for python3
+- meta: fix README re: terminal::utilities
+
 ## 1.1.2
 - bugfix: fix alias.sh pathing
 
