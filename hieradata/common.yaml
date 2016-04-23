@@ -53,3 +53,5 @@ devbox::lang::ruby::packages: ruby
 devbox::tool::docker::packages: docker
 
 devbox::tool::heroku::dependencies: curl
+
+devbox::update_packages_command:

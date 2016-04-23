@@ -1,0 +1,2 @@
+---
+devbox::update_packages_command: /usr/bin/apt-get update
