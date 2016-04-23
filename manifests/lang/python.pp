@@ -102,19 +102,19 @@ class devbox::lang::python(
     require => File["${devbox::home}/.config/terminal/extras"],
   }
 
-  file { '/etc/pythonstartup':
+  file { '/etc/pythonstart':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/startup2.py',
     owner  => root,
     group  => root,
-    mode   => '0755',
+    mode   => '0644',
   }
-  file { '/etc/python3startup':
+  file { '/etc/python3start':
     ensure => present,
     source => 'puppet:///modules/devbox/lang/python/startup3.py',
     owner  => root,
     group  => root,
-    mode   => '0755',
+    mode   => '0644',
   }
 
 }
