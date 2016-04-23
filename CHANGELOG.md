@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0
+- feature: add tool::screen
+- feature: add tool::tmux
+
 ## 1.1.0
 - feature: add tool::docker
 - feature: add tool::heroku
