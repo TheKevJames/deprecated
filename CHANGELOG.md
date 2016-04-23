@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.2.1
+- bugfix: fix tmux right-status quoting
+
 ## 1.2.0
 - feature: add tool::screen
 - feature: add tool::tmux
