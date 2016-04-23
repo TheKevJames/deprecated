@@ -13,9 +13,9 @@ devbox::lang::go::command: /usr/bin/go
 devbox::lang::go::packages: go
 
 devbox::lang::java::packages:
-  - java-1_8_0-openjdk
-  - java-1_8_0-openjdk-devel
-  - java-1_8_0-openjdk-headless
+  - java-1_7_0-openjdk
+  - java-1_7_0-openjdk-devel
+  - java-1_7_0-openjdk-headless
 
 devbox::lang::javascript::packages:
   - nodejs
