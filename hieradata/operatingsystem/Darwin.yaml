@@ -1,9 +1,9 @@
 ---
-terminal::bash::os: Darwin
 terminal::bash::packages:
   - bash-completion
 
-terminal::utilities::os: Darwin
+terminal::os: Darwin
+
 terminal::utilities::packages:
   - autoconf
   - automake
@@ -14,5 +14,3 @@ terminal::utilities::packages:
   - the_silver_searcher
   - unzip
   - wget
-
-terminal::zsh::os: Darwin

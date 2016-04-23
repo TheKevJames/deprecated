@@ -1,26 +1,22 @@
 # Install and configure zsh.
-class terminal::zsh($os, $packages, $home, $homebrew_github_api_token = undef) {
+class terminal::zsh($packages) {
 
-  terminal { 'zshterm':
-    os                        => $os,
-    home                      => $home,
-    homebrew_github_api_token => $homebrew_github_api_token,
-  }
+  include ::terminal
 
   ensure_packages($packages, { ensure => latest })
 
-  ensure_resource(file, ["${home}/.local", "${home}/.local/share", "${home}/.local/share/zsh"], { ensure => directory })
+  ensure_resource(file, ["${terminal::home}/.local", "${terminal::home}/.local/share", "${terminal::home}/.local/share/zsh"], { ensure => directory })
 
-  file { "${home}/.config/zsh":
+  file { "${terminal::home}/.config/zsh":
     ensure  => present,
     recurse => true,
     source  => 'puppet:///modules/terminal/zsh',
-    require => File["${home}/.config"],
+    require => File["${terminal::home}/.config"],
   }
 
-  file { "${home}/.zshrc":
+  file { "${terminal::home}/.zshrc":
     ensure => link,
-    target => "${home}/.config/zsh/zshrc",
+    target => "${terminal::home}/.config/zsh/zshrc",
   }
 
 }

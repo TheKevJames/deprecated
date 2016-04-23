@@ -1,26 +1,22 @@
 # Install and configure bash.
-class terminal::bash($os, $packages, $home, $homebrew_github_api_token = undef) {
+class terminal::bash($packages) {
 
-  terminal { 'bashterm':
-    os                        => $os,
-    home                      => $home,
-    homebrew_github_api_token => $homebrew_github_api_token,
-  }
+  include ::terminal
 
   ensure_packages($packages, { ensure => latest })
 
-  ensure_resource(file, ["${home}/.local", "${home}/.local/share", "${home}/.local/share/bash"], { ensure => directory })
+  ensure_resource(file, ["${terminal::home}/.local", "${terminal::home}/.local/share", "${terminal::home}/.local/share/bash"], { ensure => directory })
 
-  file { "${home}/.config/bash":
+  file { "${terminal::home}/.config/bash":
     ensure  => present,
     recurse => true,
     source  => 'puppet:///modules/terminal/bash',
-    require => File["${home}/.config"],
+    require => File["${terminal::home}/.config"],
   }
 
-  file { "${home}/.bashrc":
+  file { "${terminal::home}/.bashrc":
     ensure => link,
-    target => "${home}/.config/bash/bashrc",
+    target => "${terminal::home}/.config/bash/bashrc",
   }
 
 }

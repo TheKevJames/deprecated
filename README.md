@@ -10,13 +10,12 @@ puppet-terminal is available on the
 Simply
 
 ```puppet
-class { '::terminal::bash':
+class { '::terminal':
   home => '/home/kevin',
 }
 
-class { '::terminal::zsh':
-  home => '/home/kevin',
-}
+include ::terminal::bash
+include ::terminal::zsh
 ```
 
 to make sure bash and zsh are installed and configured. Feel free to use both
@@ -25,21 +24,17 @@ if you need both terminals configured!
 To get some standard terminal utilities, simply
 
 ```puppet
-class { '::terminal::utilities':
-  home => '/home/kevin',
-}
+include ::terminal::utilies
 ```
 
 If you're an OSX user that wants to avoid homebrew+github rate limiting, set
 
 ```puppet
-class { '::terminal::zsh':
+class { '::terminal':
   home                      => '/home/kevin',
   homebrew_github_api_token => 'IMASECRETSSSHDONTTELLANYONE',
 }
 ```
-
-for your subclasses.
 
 ## Configuration
 

@@ -1,10 +1,10 @@
 ---
-terminal::bash::os: Linux
 terminal::bash::packages:
   - bash
   - bash-completion
 
-terminal::utilities::os: Linux
+terminal::os: Linux
+
 terminal::utilities::packages:
   - autoconf
   - automake
@@ -17,5 +17,4 @@ terminal::utilities::packages:
   - unzip
   - wget
 
-terminal::zsh::os: Linux
 terminal::zsh::packages: zsh

@@ -1,5 +1,5 @@
 # Configure common terminal settings.
-define terminal($os, $home, $homebrew_github_api_token) {
+class terminal($os, $home, $homebrew_github_api_token = undef) {
 
   ensure_resource(file, ["${home}/.config", "${home}/.config/terminal", "${home}/.config/terminal/extras"], { ensure => directory })
   ensure_resource(file, "${home}/.config/terminal/prompt", {

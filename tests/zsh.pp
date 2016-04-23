@@ -1,3 +1,6 @@
-class { '::terminal::zsh':
+class { '::terminal':
   home => '/root',
+}
+
+class { '::terminal::zsh':
 }
