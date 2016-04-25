@@ -48,7 +48,7 @@ class neovim($dependencies, $packages, $home) {
       } ~>
       exec { 'make_neovim':
         cwd     => '/tmp/neovim',
-        command => '/usr/bin/make -C /tmp/neovim',
+        command => '/usr/bin/make -C /tmp/neovim CMAKE_BUILD_TYPE=Release',
         creates => '/tmp/neovim/build/bin/nvim',
       } ~>
       exec { 'make_install_neovim':
