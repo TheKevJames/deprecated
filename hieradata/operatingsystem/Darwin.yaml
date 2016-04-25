@@ -1,0 +1,6 @@
+---
+sublime::binary_file: /Applications/Sublime Text.app/Contents/MacOS/Sublime Text
+sublime::download_url: https://download.sublimetext.com/Sublime%20Text%20Build%203103.dmg
+sublime::keymap_name: OSX
+sublime::package_file: sublime-text-3.dmg
+sublime::user_font_dir: Library/Fonts

@@ -1,0 +1,17 @@
+{
+	"auto_upgrade": true,
+	"auto_upgrade_frequency": 1,
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"install_missing": true,
+	"install_prereleases": true,
+	"installed_packages":
+	[
+<%- for package in scope.function_hiera(["sublime::plugins"]) -%>
+  		"<%= package %>",
+<%- end -%>
+		"SideBarEnhancements"
+	]
+}

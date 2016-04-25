@@ -1,0 +1,3 @@
+class { '::sublime':
+  home => '/root',
+}
