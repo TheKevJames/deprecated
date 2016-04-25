@@ -9,7 +9,7 @@
 	"install_prereleases": true,
 	"installed_packages":
 	[
-<%- for package in scope.function_hiera(["sublime::plugins"]) -%>
+<%- for package in scope['sublime::plugins'] -%>
   		"<%= package %>",
 <%- end -%>
 		"SideBarEnhancements"

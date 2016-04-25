@@ -11,10 +11,6 @@ class sublime(
   $plugins = []
 ) {
 
-   {
-    $font_dir = "${home}/.fonts"
-  }
-
   ensure_packages($dependencies, { ensure => latest })
 
   ensure_resource(file, "${home}/.config", { ensure => directory })
@@ -67,19 +63,19 @@ class sublime(
 
   file { "${home}/.config/sublime-text-3":
     ensure  => directory,
-    require => "${home}/.config",
+    require => File["${home}/.config"],
   } ->
   file { "${home}/.config/sublime-text-3/Packages": ensure => directory } ->
   file { "${home}/.config/sublime-text-3/Packages/User": ensure => directory } ->
   file { "${home}/.config/sublime-text-3/Packages/User/Preferences.sublime-settings":
-    ensure  => present,
-    source  => 'puppet:///modules/sublime/${::kernel}/config'
-    mode    => '0644',
+    ensure => present,
+    source => "puppet:///modules/sublime/${::kernel}/config",
+    mode   => '0644',
   }
 
   file { "${home}/.config/sublime-text-3/Packages/User/Default (${keymap_name}).sublime-keymap":
     ensure  => present,
-    source  => 'puppet:///modules/sublime/${::kernel}/keymap'
+    source  => "puppet:///modules/sublime/${::kernel}/keymap",
     mode    => '0644',
     require => File["${home}/.config/sublime-text-3/Packages/User"],
   }
