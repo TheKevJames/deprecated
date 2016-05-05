@@ -58,4 +58,4 @@ devbox::tool::screen::packages: screen
 devbox::tool::tmux::dependencies: [ ]
 devbox::tool::tmux::packages: tmux
 
-devbox::update_packages_command: [ ]
+devbox::update_packages_command: /bin/true
