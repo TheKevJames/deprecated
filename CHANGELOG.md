@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.2.3
+- bugfix: fix empty package update command
+
 ## 1.2.2
 - bugfix: fix tmux right-status query nesting
 
