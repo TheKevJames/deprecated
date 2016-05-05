@@ -15,8 +15,8 @@ class terminal::bash($packages) {
   }
 
   file { "${terminal::home}/.bashrc":
-    ensure => link,
-    target => "${terminal::home}/.config/bash/bashrc",
+    ensure => present,
+    source => 'puppet:///modules/terminal/bash/bashrc',
   }
 
 }

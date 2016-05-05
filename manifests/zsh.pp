@@ -15,8 +15,8 @@ class terminal::zsh($packages) {
   }
 
   file { "${terminal::home}/.zshrc":
-    ensure => link,
-    target => "${terminal::home}/.config/zsh/zshrc",
+    ensure => present,
+    source => 'puppet:///modules/terminal/zsh/zshrc',
   }
 
 }
