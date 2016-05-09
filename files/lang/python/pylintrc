@@ -1,8 +1,7 @@
 [MASTER]
 # Add <file or directory> to the black list. It should be a base name, not a
 # path. You may set this option multiple times.
-ignore=.svn
-ignore=.git
+ignore=.git,.svn
 
 # Pickle collected data for later comparisons.
 persistent=no
