@@ -15,7 +15,7 @@
     { "operatingsystem": "Darwin" },
     { "operatingsystem": "Debian" },
     { "operatingsystem": "Fedora" },
-    { "operatingsystem": "Ubuntu" }
+    { "operatingsystem": "Ubuntu", "operatingsystemrelease": ["12.04", "14.04"] }
   ],
   "requirements": [
     { "name": "puppet", "version_requirement": ">= 4.3.0 < 5.0.0" }
