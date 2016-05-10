@@ -9,3 +9,4 @@ test:
   override:
     - python runner.py --parallel $CIRCLE_NODE_TOTAL $CIRCLE_NODE_INDEX :
         parallel: true
+        timeout: 900
