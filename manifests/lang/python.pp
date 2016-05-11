@@ -25,13 +25,13 @@ class devbox::lang::python(
 
   exec { 'install_pip2':
     command   => '/usr/bin/python2 /tmp/get-pip.py',
-    creates   => '/usr/local/bin/pip',
+    creates   => '/usr/local/bin/pip2',
     require   => Package[$packages],
     subscribe => Exec['retrieve_pip'],
   }
   exec { 'install_pip3':
     command   => '/usr/bin/python3 /tmp/get-pip.py',
-    creates   => '/usr/local/bin/pip',
+    creates   => '/usr/local/bin/pip3',
     require   => Package[$packages],
     subscribe => Exec['retrieve_pip'],
   }
