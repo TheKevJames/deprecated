@@ -1,4 +1,14 @@
 ---
+devbox::db::mariadb::packages: mariadb
+
+devbox::db::mysql::packages: mysql
+
+devbox::db::postgres::packages: postgresql
+
+devbox::db::redis::config: /usr/local/etc/redis.conf
+
+devbox::db::sqlite::packages: sqlite
+
 devbox::lang::c::packages:
   - gcc
   - llvm

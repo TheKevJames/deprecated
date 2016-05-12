@@ -1,4 +1,6 @@
 ---
+devbox::db::mysql::packages: mysql-server
+
 devbox::lang::go::packages: golang
 
 devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh

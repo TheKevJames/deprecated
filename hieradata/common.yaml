@@ -1,4 +1,26 @@
 ---
+devbox::db::mariadb::packages:
+  - mariadb
+  - mariadb-client
+  - mariadb-errormessages
+
+devbox::db::mysql::packages:
+  - libmysqlclient-devel
+  - libmysqlclient18
+  - libmysqlclient18-32bit
+  - libmysqlclient_r18
+  - mysql-community-server
+
+devbox::db::postgres::packages:
+  - postgresql
+  - postgresql-contrib
+  - postgresql-server
+
+devbox::db::redis::config: /etc/redis/redis.conf
+devbox::db::redis::packages: redis
+
+devbox::db::sqlite::packages: sqlite3
+
 devbox::lang::c::dependencies: curl
 devbox::lang::c::packages:
   - gcc
