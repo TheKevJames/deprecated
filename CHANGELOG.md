@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.4
+- bugfix: fix regression of venv label on prompt
+- bugfix: fix fresh pip install race condition
+- bugfix: fix pylintrc format for new pylint versions
+- meta: fix test runner
+
 ## 1.2.3
 - bugfix: fix empty package update command
 
