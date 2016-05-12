@@ -28,6 +28,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*' use-perl true
 zstyle ':completion:*' verbose true
+zstyle ':completion:*' hosts off
 
 
 setopt correct
