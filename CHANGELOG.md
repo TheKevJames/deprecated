@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.0
+- feature: disable /etc/hosts ssh completion
+- minor: do not use symlinks for ~/.{b,zsh}rc
+- meta: migrate base terminal definition to class
+
 ## 1.1.3
 - bugfix: fix git prompt for python3
 - meta: fix README re: terminal::utilities
