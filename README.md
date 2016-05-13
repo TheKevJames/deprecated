@@ -21,6 +21,11 @@ to make your box a _devbox_.
 To install and configure any of the submodules, simply include them!
 
 ```puppet
+include ::devbox::db::mariadb
+include ::devbox::db::mysql
+include ::devbox::db::postgres
+include ::devbox::db::redis
+include ::devbox::db::sqlite
 include ::devbox::framework::android
 include ::devbox::lang::c
 include ::devbox::lang::clojure
