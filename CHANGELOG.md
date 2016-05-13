@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.3.0
+- feature: include database manifests
+
 ## 1.2.4
 - bugfix: fix regression of venv label on prompt
 - bugfix: fix fresh pip install race condition
