@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.3.1
+- bugfix: fix pip path for OpenSuSE
+- bugfix: ensure correct pip binary is loaded (given /usr/local/bin generally
+          gets searched before /usr/bin)
+
 ## 1.3.0
 - feature: include database manifests
 
