@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.1
+- feature: ensure ~/.config exists
+- meta: config folder manifest cleanup
+
 ## 1.1.0
 - feature: manage transmission-daemon service
 
