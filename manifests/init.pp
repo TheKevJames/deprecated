@@ -1,1 +1,2 @@
-class mpd {}
+class mpd {
+}

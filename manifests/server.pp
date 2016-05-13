@@ -1,7 +1,8 @@
 class mpd::server($packages, $home, $music_dir, $service_location, $service_template, $user) {
 
   include ::mpd
-  class { '::osbase': home => $home }
+
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   package { $packages: ensure => latest }
 
