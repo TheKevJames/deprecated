@@ -2,9 +2,9 @@ class mpd::server($packages, $home, $music_dir, $service_location, $service_temp
 
   include ::mpd
 
-  ensure_resource(file, "${home}/.config", { ensure => directory })
+  ensure_packages($packages, { ensure => latest})
 
-  package { $packages: ensure => latest }
+  ensure_resource(file, "${home}/.config", { ensure => directory })
 
   file { "${home}/.config/mpd":
     ensure  => directory,
