@@ -6,4 +6,6 @@ devbox::lang::ocaml::packages:
   - ocaml-camlp4-devel
   - ocaml-ocamldoc
 
+devbox::lang::python::pip_path: /usr/bin
+
 devbox::update_packages_command: /usr/bin/zypper ref

@@ -3,6 +3,7 @@ class devbox::lang::python(
   $dependencies,
   $packages,
   $pip_packages,
+  $pip_path,
   $virtualenvsource,
   $pypi_username = '',
   $pypi_password = '',
@@ -25,13 +26,13 @@ class devbox::lang::python(
 
   exec { 'install_pip2':
     command   => '/usr/bin/python2 /tmp/get-pip.py',
-    creates   => '/usr/local/bin/pip2',
+    creates   => "${pip_path}/pip2",
     require   => Package[$packages],
     subscribe => Exec['retrieve_pip'],
   }
   exec { 'install_pip3':
     command   => '/usr/bin/python3 /tmp/get-pip.py',
-    creates   => '/usr/local/bin/pip3',
+    creates   => "${pip_path}/pip3",
     require   => Package[$packages],
     subscribe => Exec['retrieve_pip'],
   }
@@ -42,9 +43,10 @@ class devbox::lang::python(
     owner  => root,
     group  => root,
   }
+  file { '/usr/local/bin/pip': ensure => absent }
   file { '/usr/bin/pip':
     ensure => link,
-    target => "/usr/bin/pip${default_version}",
+    target => "${pip_path}/pip${default_version}",
     owner  => root,
     group  => root,
   }

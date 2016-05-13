@@ -60,6 +60,7 @@ devbox::lang::python::pip_packages:
   - ipython
   - pylint
   - virtualenvwrapper
+devbox::lang::python::pip_path: /usr/local/bin
 
 devbox::lang::ocaml::dependencies: curl
 devbox::lang::ocaml::packages:
