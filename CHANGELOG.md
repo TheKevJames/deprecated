@@ -1,27 +1,30 @@
 # CHANGELOG
 
+## 1.3.2
+- feature: ensure !/.config folder exists
+
 ## 1.3.1
-- parameterize difftool for non-hiera
+- feature: parameterize difftool for non-hiera
 
 ## 1.3.0
-- git::mergetool -> git::difftool (now configures difftool as well!)
-- compat with neovim (use difftool: nvimdiff).
+- feature: git::mergetool -> git::difftool (now configures difftool as well!)
+- compatibility: compatible with neovim (use difftool: nvimdiff).
 
 ## 1.2.1
-- fix XDG_CONFIG_HOME pathing
+- bugfix: fix XDG_CONFIG_HOME pathing
 
 ## 1.2.0
-- use XDG_CONFIG_HOME
-- improve package compatibility by using ensure_packages
+- feature: use XDG_CONFIG_HOME
+- compatibility: improve package compatibility by using ensure_packages
 
 ## 1.1.2
-- add $tar parameter to ::git
+- feature: add $tar parameter to ::git
 
 ## 1.1.1
-- allow configuration of tar binary location
+- feature: allow configuration of tar binary location
 
 ## 1.1.0
-- add hub tool
+- feature: add hub tool
 
 ## 1.0.0
 - initial release
