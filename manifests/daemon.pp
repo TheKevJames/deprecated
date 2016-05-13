@@ -5,6 +5,8 @@ class transmission::daemon($packages, $home, $password, $user) {
 
     ensure_packages($packages, { ensure => latest })
 
+    ensure_resource(file, "${home}/.config", { ensure => directory })
+
     file { "${home}/.config/transmission-daemon":
       ensure  => directory,
       require => File["${home}/.config"],

@@ -2,6 +2,8 @@ class transmission::gui($home) {
 
   include ::transmission
 
+  ensure_resource(file, "${home}/.config", { ensure => directory })
+
   file { "${home}/.config/transmission":
     ensure  => directory,
     require => File["${home}/.config"],
