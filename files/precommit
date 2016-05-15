@@ -31,7 +31,7 @@ fi
 if command -v python >/dev/null 2>&1; then
     if command -v /usr/bin/pylint >/dev/null 2>&1; then
         if command -v git-pylint-commit-hook >/dev/null 2>&1; then
-            git-pylint-commit-hook --pylint /usr/bin/pylint --pylintrc $HOME/.managed/python/pylintrc --limit 9.9
+            git-pylint-commit-hook --pylint /usr/bin/pylint --pylintrc /etc/pylintrc --limit 9.9
             if [ $? != 0 ]; then
               exit 1
             fi
