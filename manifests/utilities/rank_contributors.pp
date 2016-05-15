@@ -1,3 +1,4 @@
+# `git-rank-contributors` tool installation.
 class git::utilities::rank_contributors($dependencies, $url) {
 
   include ::git::utilities

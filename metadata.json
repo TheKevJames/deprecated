@@ -19,6 +19,6 @@
     { "operatingsystem": "Ubuntu" }
   ],
   "requirements": [
-    { "name": "puppet", "version_requirement": ">= 3.0.0 < 5.0.0" }
+    { "name": "puppet", "version_requirement": ">= 4.3.0 < 5.0.0" }
   ]
 }

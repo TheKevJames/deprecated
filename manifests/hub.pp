@@ -1,3 +1,4 @@
+# Github `hub` tool installation.
 class git::hub($dependencies, $url) {
 
   include ::git

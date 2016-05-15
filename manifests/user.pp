@@ -1,3 +1,4 @@
+# Base git configuration for a given user.
 class git::user($home, $fullname, $email) {
 
   include ::git

@@ -1,3 +1,4 @@
+# `git-forest` tool installation.
 class git::utilities::forest($dependencies, $url) {
 
   include ::git::utilities

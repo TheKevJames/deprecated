@@ -1,3 +1,4 @@
+# `git-wtf` tool installation.
 class git::utilities::wtf($dependencies, $url) {
 
   include ::git::utilities
