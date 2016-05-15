@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.2
+- bugfix: use global pylintrc in pre-commit hook
+
 ## 1.4.1
 - bugfix: allow usage of multiple utilities
 
