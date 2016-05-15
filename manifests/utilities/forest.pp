@@ -4,7 +4,7 @@ class git::utilities::forest($dependencies, $url) {
 
   ensure_packages($dependencies, { ensure => latest })
 
-  exec { 'retrieve_wtf':
+  exec { 'retrieve_forest':
     command => "/usr/bin/curl -Ls ${::git::utilities::forest::url} > /usr/local/bin/git-forest",
     creates => '/usr/local/bin/git-forest',
     require => Package['curl'],
