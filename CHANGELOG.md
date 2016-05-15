@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.1
+- bugfix: allow usage of multiple utilities
+
 ## 1.4.0
 - feature: add git utilities: git-forest, git-rank-contributors, git-wtf
 
