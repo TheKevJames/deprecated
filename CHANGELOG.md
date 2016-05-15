@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.0
+- feature: add git utilities: git-forest, git-rank-contributors, git-wtf
+
 ## 1.3.2
 - feature: ensure !/.config folder exists
 
