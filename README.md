@@ -31,6 +31,12 @@ You can also install the [Hub](https://hub.github.com/) tool with
 include ::git::hub
 ```
 
+Other popular git subcommands can be installed with
+
+```puppet
+include ::git::utilities::wtf  # http://git-wt-commit.rubyforge.org/
+```
+
 ## Configuration
 
 In addition to the above value set for `git::user`, you can also use

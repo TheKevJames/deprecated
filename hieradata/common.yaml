@@ -10,3 +10,8 @@ git::tar: /bin/tar
 
 git::hub::dependencies: curl
 git::hub::url: https://github.com/github/hub/releases/download/v2.2.3/hub-linux-amd64-2.2.3.tgz
+
+git::utilities::wtf::dependencies:
+  - curl
+  - ruby
+git::utilities::wtf::url: https://raw.githubusercontent.com/DanielVartanov/willgit/master/bin/git-wtf
