@@ -34,6 +34,7 @@ include ::git::hub
 Other popular git subcommands can be installed with
 
 ```puppet
+include ::git::utilities::rank_contributors  # http://git-wt-commit.rubyforge.org/
 include ::git::utilities::wtf  # http://git-wt-commit.rubyforge.org/
 ```
 
