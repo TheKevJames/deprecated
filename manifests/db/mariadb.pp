@@ -26,11 +26,18 @@ class devbox::db::mariadb($packages) {
     }
   }
 
-  ensure_resource(file, ['/var/log', '/var/log/mysql'], {
+  ensure_resource(file, '/var/log', {
     ensure => directory,
     owner  => root,
     group  => root,
     mode   => '0750',
+  })
+  ensure_resource(file, '/var/log/mysql', {
+    ensure  => directory,
+    owner   => mysql,
+    group   => mysql,
+    mode    => '0750',
+    require => File['/var/log'],
   })
 
   ensure_resource(file, '/etc/logrotate.d/mysql-server', { ensure => absent })
