@@ -3,8 +3,6 @@ class phabricator($dependencies) {
 
   require ::git
 
-  include ::devbox::db::mysql
-
   ensure_packages($dependencies, { ensure => latest })
 
   vcsrepo { '/opt/arcanist':
