@@ -1,4 +1,8 @@
 ---
+devbox::db::mariadb::packages:
+  - mariadb-client
+  - mariadb-server
+
 devbox::db::mysql::packages: mysql-server
 
 devbox::lang::go::packages: golang
