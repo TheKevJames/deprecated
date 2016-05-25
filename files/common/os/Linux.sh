@@ -2,6 +2,10 @@
 alias ls='ls -h --color=auto'
 alias open='xdg-open'
 
+# standardize commands commands
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 # env vars
 export MAN_POSIXLY_CORRECT=1
 
