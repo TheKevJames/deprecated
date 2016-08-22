@@ -7,14 +7,18 @@ class devbox::lang::c($dependencies, $packages) {
   ensure_packages($packages, { ensure => latest })
 
   exec { 'retrieve_c':
-    command => '/usr/bin/curl -s https://raw.githubusercontent.com/ryanmjacobs/c/master/c > /usr/bin/c',
-    creates => '/usr/bin/c',
+    command => '/usr/bin/curl -s https://raw.githubusercontent.com/ryanmjacobs/c/master/c > /opt/c',
+    creates => '/opt/c',
     require => Package[$dependencies],
   } ~>
-  file { '/usr/bin/c':
+  file { '/opt/c':
     owner => root,
     group => root,
     mode  => '0755',
+  } ->
+  file { '/usr/local/bin/c':
+    ensure => link,
+    target => '/opt/c',
   }
 
   file { "${devbox::home}/.config/terminal/extras/devbox-lang-c.sh":
