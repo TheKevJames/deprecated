@@ -17,6 +17,7 @@ devbox::lang::c::packages:
 # TODO: other OS's are on 1.7 (caskroom/versions/java7)
 devbox::lang::java::packages: java
 
+devbox::lang::python::python_path: /usr/local/bin
 devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
 
 devbox::tool::tmux::dependencies: reattach-to-user-namespace

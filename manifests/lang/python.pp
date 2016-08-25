@@ -4,6 +4,7 @@ class devbox::lang::python(
   $packages,
   $pip_packages,
   $pip_path,
+  $python_path,
   $virtualenvsource,
   $pypi_username = '',
   $pypi_password = '',
@@ -25,26 +26,25 @@ class devbox::lang::python(
   }
 
   exec { 'install_pip2':
-    command   => '/usr/bin/python2 /tmp/get-pip.py',
+    command   => "${python_path}/python2 /tmp/get-pip.py",
     creates   => "${pip_path}/pip2",
     require   => Package[$packages],
     subscribe => Exec['retrieve_pip'],
   }
   exec { 'install_pip3':
-    command   => '/usr/bin/python3 /tmp/get-pip.py',
+    command   => "${python_path}/python3 /tmp/get-pip.py",
     creates   => "${pip_path}/pip3",
     require   => Package[$packages],
     subscribe => Exec['retrieve_pip'],
   }
 
-  file { '/usr/bin/python':
+  file { '/usr/local/bin/python':
     ensure => link,
-    target => "/usr/bin/python${default_version}",
+    target => "${python_path}/python${default_version}",
     owner  => root,
     group  => root,
   }
-  file { '/usr/local/bin/pip': ensure => absent }
-  file { '/usr/bin/pip':
+  file { '/usr/local/bin/pip':
     ensure => link,
     target => "${pip_path}/pip${default_version}",
     owner  => root,
