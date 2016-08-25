@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 1.4.0
+- feature: move some installs from /usr/bin to /usr/local/bin (support OSX El Capitan, etc)
+    - c
+    - lein
+    - python + pip
+- minor: install MariaDB in Fedora/Ubuntu
+- minor: install Java properly on OSX
+- bugfix: fix permissions on MySQL log file
+- cleanup: remove unused go::command
+
 ## 1.3.1
 - bugfix: fix pip path for OpenSuSE
 - bugfix: ensure correct pip binary is loaded (given /usr/local/bin generally
