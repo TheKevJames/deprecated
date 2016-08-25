@@ -14,8 +14,6 @@ devbox::lang::c::packages:
   - llvm
   - valgrind
 
-devbox::lang::go::command: /usr/local/bin/go
-
 devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
 
 devbox::tool::tmux::dependencies: reattach-to-user-namespace

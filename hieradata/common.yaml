@@ -31,7 +31,6 @@ devbox::lang::c::packages:
 
 devbox::lang::clojure::dependencies: curl
 
-devbox::lang::go::command: /usr/bin/go
 devbox::lang::go::packages: go
 
 devbox::lang::java::packages:
