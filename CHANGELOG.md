@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.2
+- bugfix: fix usage of homebrew update command in systems without root pathing set for puppet user
+
 ## 1.4.1
 - bugfix: fix usage of homebrew update command to run as homebrew user
 

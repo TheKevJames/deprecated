@@ -23,4 +23,4 @@ devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
 devbox::tool::tmux::dependencies: reattach-to-user-namespace
 
 # Ugh
-devbox::update_packages_command: sudo -i -u $(stat -f '%Su' /usr/local/bin/brew) /usr/local/bin/brew update
+devbox::update_packages_command: /usr/bin/sudo -i -u $(stat -f '%Su' /usr/local/bin/brew) /usr/local/bin/brew update
