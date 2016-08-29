@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.4.1
+- bugfix: fix usage of homebrew update command to run as homebrew user
+
 ## 1.4.0
 - feature: move some installs from /usr/bin to /usr/local/bin (support OSX El Capitan, etc)
     - c
