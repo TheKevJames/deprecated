@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.2
+- bugfix: update transmission-daemon config location to /var/lib
+- bugfix: prevent some unnecessary daemon config refreshes
+
 ## 1.1.1
 - feature: ensure ~/.config exists
 - meta: config folder manifest cleanup
