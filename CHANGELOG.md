@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 1.1.3
+- bugfix: set explicit owner and group for daemon config folders
+
 ## 1.1.2
 - bugfix: update transmission-daemon config location to /var/lib
 - bugfix: prevent some unnecessary daemon config refreshes
