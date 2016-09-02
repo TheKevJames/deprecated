@@ -9,13 +9,22 @@ class transmission::daemon($packages, $home, $password, $user) {
       ensure  => directory,
       owner   => 'transmission',
       group   => 'transmission',
-      recurse => true,
     } ->
-    file { '/var/lib/transmission/.config': ensure => directory } ->
-    file { '/var/lib/transmission/.config/transmission': ensure  => directory } ->
+    file { '/var/lib/transmission/.config':
+      ensure  => directory,
+      owner   => 'transmission',
+      group   => 'transmission',
+    } ->
+    file { '/var/lib/transmission/.config/transmission':
+      ensure  => directory,
+      owner   => 'transmission',
+      group   => 'transmission',
+    } ->
     file { '/var/lib/transmission/.config/transmission/settings.managed.json':
       ensure  => present,
       content => template('transmission/daemon.erb'),
+      owner   => 'transmission',
+      group   => 'transmission',
       mode    => '0600',
     } ~>
     exec { 'replace-transmission-daemon-settings':
