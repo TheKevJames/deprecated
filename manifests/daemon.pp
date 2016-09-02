@@ -5,24 +5,31 @@ class transmission::daemon($packages, $home, $password, $user) {
 
     ensure_packages($packages, { ensure => latest })
 
-    ensure_resource(file, "${home}/.config", { ensure => directory })
-
-    file { "${home}/.config/transmission-daemon":
+    file { '/var/lib/transmission':
       ensure  => directory,
-      require => File["${home}/.config"],
+      owner   => 'transmission',
+      group   => 'transmission',
+      recurse => true,
     } ->
-    file { "${home}/.config/transmission-daemon/settings.managed.json":
+    file { '/var/lib/transmission/.config': ensure => directory } ->
+    file { '/var/lib/transmission/.config/transmission': ensure  => directory } ->
+    file { '/var/lib/transmission/.config/transmission/settings.managed.json':
       ensure  => present,
       content => template('transmission/daemon.erb'),
       mode    => '0600',
     } ~>
-    exec { 'update_transmission_daemon_settings':
-      command     => "pkill -f transmission-daemon; cp ${home}/.config/transmission-daemon/settings.managed.json ${home}/.config/transmission-daemon/settings.json",
-      path        => ['/usr/bin', '/bin'],
+    exec { 'replace-transmission-daemon-settings':
+      command     => '/bin/cp /var/lib/transmission/.config/transmission/settings.managed.json /var/lib/transmission/.config/transmission/settings.json',
+      require     => Exec['stop-transmission-daemon'],
       refreshonly => true,
-      before      => Service['transmission-daemon'],
     }
 
+    exec { 'stop-transmission-daemon':
+      command     => '/sbin/service transmission-daemon stop',
+      onlyif      => '/sbin/service transmission-daemon status',
+      subscribe   => File['/var/lib/transmission/.config/transmission/settings.managed.json'],
+      refreshonly => true,
+    } ->
     service { 'transmission-daemon':
       ensure => running,
       enable => true,
