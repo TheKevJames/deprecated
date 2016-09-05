@@ -3,22 +3,25 @@ var API = 'http://172.16.0.2:8888';
 var devstatApp = angular.module('devstatApp', []);
 
 devstatApp.component('repoList', {
-    templateUrl: 'templates/repo-list.html',
     controller: function RepoListController($http) {
+        this.user = 'TheKevJames';
+
         var self = this;
+        $http.get(API + '/' + self.user).then(
+            function(resp) { self.repos = resp.data['repos'] },
+            function(err) { console.log(err) });
+    },
+    templateUrl: 'templates/repo-list.html'
+});
 
-        $http.get(API + '/TheKevJames').then(
-            function(response) {
-                self.repos = response.data['repos'];
-
-                for (var i = 0; i < self.repos.length; i++) {
-                    (function(j) {
-                        $http.get(API + '/TheKevJames/' + self.repos[j].name).then(
-                            function(response) {
-                                self.repos[j] = response.data['repo'];
-                            },
-                            function(err) { console.log(err); })})(i);
-                }
-            });
+devstatApp.directive('repoItem', function() {
+    return {
+        controller: function RepoItemController($http, $scope) {
+            $http.get(API + '/' + $scope.user + '/' + $scope.repo.name).then(
+                function(resp) { $scope.repo = resp.data['repo'] },
+                function(err) { console.log(err) });
+        },
+        scope: { repo: '=', user: '=' },
+        templateUrl: 'templates/repo-item.html'
     }
 });
