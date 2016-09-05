@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  web:
+    build: web/.
+    networks:
+      network:
+        ipv4_address: 172.16.0.1
+    ports:
+      - "8080:80"
+
+  server:
+    build: server/.
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    networks:
+      network:
+        ipv4_address: 172.16.0.2
+
+networks:
+  network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv4: "true"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.0.0/24
+        gateway: 172.16.0.254

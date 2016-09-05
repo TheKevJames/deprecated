@@ -14,24 +14,9 @@ implemented, partially-implemented, and roadmap)
 
 ## Usage
 
-(subject to change, at least for a while)
+    docker-compose up --build
 
-### Production
-
-TODO
-
-### Development
-
-In a [venv](https://virtualenvwrapper.readthedocs.org/en/latest/), run
-
-    pip install -r requirements.txt
-    python server.py
-
-When modifying sass, you should
-
-    gem install sass
-    sass --watch static/sass:static/css
-
+<!--
 ## Configuration
 
 This project conforms to the [XDG Base Directory Specification]
@@ -67,3 +52,4 @@ status:
     - dotfiles
     - jarvis
 ```
+-->

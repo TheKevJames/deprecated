@@ -1,0 +1,58 @@
+<div class="repo-header">
+    <span ng-if="repo.fork">
+            <!-- TODO: link to parent -->
+            <span class="octicon octicon-left octicon-repo-forked"></span>
+    </span>
+
+    <h2 class="repo-name">
+        <a href="{{repo.html_url}}">{{repo.name}}</a>
+    </h2>
+
+    <!-- TODO: link to repo.homepage -->
+
+    <span class="octicon octicon-right octicon-eye">
+        <a href="{{repo.html_url}}/watchers"> {{repo.subscribers_count}}</a>
+    </span>
+    <span class="octicon octicon-right octicon-star">
+        <a href="{{repo.html_url}}/stargazers"> {{repo.stargazers_count}}</a>
+    </span>
+    <span class="octicon octicon-right octicon-repo-forked">
+        <a href="{{repo.html_url}}/network"> {{repo.forks_count}}</a>
+    </span>
+    <span class="octicon octicon-right octicon-issue-opened">
+        <a href="{{repo.html_url}}/issues"> {{repo.open_issues_count}}</a>
+    </span>
+
+    <!-- TODO: tags
+    <span>
+        {{repo.tag}}<span class="octicon octicon-right octicon-chevron-right"> {{repo.tag_off}}</span>
+    </span> -->
+</div>
+
+<div class="repo-body">
+    <p class="description">{{repo.description}}</p>
+</div>
+
+<div class="repo-status">
+    <span ng-if="repo.status_url">
+        <a href="{{repo.status_url}}">
+            <img src="{{repo.status_image}}"\>
+        </a>
+    </span>
+
+    <span ng-if="repo.deploy_url && repo.deploy_stars">
+        <a href="{{repo.deploy_url}}">
+            Stars: {{repo.deploy_stars}}
+        </a>
+    </span>
+
+    <span ng-if="repo.deploy_url && repo.deploy_pulls">
+        <a href="{{repo.deploy_url}}">
+            Pulls: {{repo.deploy_pulls}}
+        </a>
+    </span>
+</div>
+
+<!-- {{repo.created_at}} -->
+<!-- {{repo.pushed_at}} -->
+<!-- {{repo.updated_at}} -->

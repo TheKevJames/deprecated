@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Kevin James">
+    <meta name="description" content="DevStat | An all-in-one place to see your DevStats.">
+    <meta name="keywords" content="Kevin,James,devstat,development,github">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Test App</title>
+
+    <link rel="stylesheet" href="css/extern/reset.css" />
+    <link rel="stylesheet" href="css/extern/bootstrap-3.3.4.min.css" />
+    <link rel="stylesheet" href="css/extern/octicons.css">
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- <link rel='icon' href='/img/favicon.png' /> -->
+
+    <script src="js/extern/angular.min.js"></script>
+    <script src="js/extern/jquery-2.1.4.min.js"></script>
+    <script src="js/extern/bootstrap-3.3.4.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+<div ng-app="devstatApp">
+    <repo-list></repo-list>
+</div>
+
+<script src="js/extern/wookmark-2.0.1.min.js"></script>
+<script>
+setInterval(function() {
+    $('#repos').wookmark({
+        itemWidth: 300,
+        offset: 12,
+    });
+}, 5000);
+</script>
+
+</body>
+</html>
