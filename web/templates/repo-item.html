@@ -40,16 +40,18 @@
         </a>
     </span>
 
-    <span ng-if="repo.deploy_url && repo.deploy_stars">
-        <a href="{{repo.deploy_url}}">
-            Stars: {{repo.deploy_stars}}
-        </a>
-    </span>
+    <span ng-if="repo.deploy_url">
+        <span ng-if="repo.deploy_stars">
+            <a href="{{repo.deploy_url}}">
+                Stars: {{repo.deploy_stars}}
+            </a>
+        </span>
 
-    <span ng-if="repo.deploy_url && repo.deploy_pulls">
-        <a href="{{repo.deploy_url}}">
-            Pulls: {{repo.deploy_pulls}}
-        </a>
+        <span ng-if="repo.deploy_pulls">
+            <a href="{{repo.deploy_url}}">
+                Pulls: {{repo.deploy_pulls}}
+            </a>
+        </span>
     </span>
 </div>
 

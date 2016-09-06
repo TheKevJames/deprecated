@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 import os
 
-from agithub.base import API, Client, ConnectionProperties
+# from agithub.base import API, Client, ConnectionProperties
 from agithub.GitHub import GitHub
+
+import requests
 
 import tornado.httpserver
 import tornado.ioloop
@@ -10,22 +12,25 @@ import tornado.options
 import tornado.log
 import tornado.web
 
+# import vanity
+
 
 tornado.log.enable_pretty_logging()
 
 
-class Dockerhub(API):
-    def __init__(self, *args, **kwargs):
-        props = ConnectionProperties(
-            api_url='registry.hub.docker.com',
-            url_prefix='/v2',
-            secure_http=True)
+# TODO: requests -> agithub for dockerhub
+# class Dockerhub(API):
+#     def __init__(self, *args, **kwargs):
+#         props = ConnectionProperties(
+#             api_url='registry.hub.docker.com',
+#             url_prefix='/v2',
+#             secure_http=True)
 
-        self.setClient(Client(*args, **kwargs))
-        self.setConnectionProperties(props)
+#         self.setClient(Client(*args, **kwargs))
+#         self.setConnectionProperties(props)
 
 
-dockerhub = Dockerhub(token=os.environ.get('DOCKERHUB_TOKEN'))
+# dockerhub = Dockerhub(token=os.environ.get('DOCKERHUB_TOKEN'))
 github = GitHub(token=os.environ.get('GITHUB_TOKEN'))
 
 
@@ -55,14 +60,18 @@ def get_circleci(username, repo, branch):
 def get_dockerhub(username, repo):
     repos = {repo}
     if repo.startswith('docker-'):
-        repos.add(repo.strip('docker-'))
+        repos.add(repo[7:])
 
     for repo in repos:
-        code, body = dockerhub.repositories[username][repo].get()
+        dockerhub = 'https://registry.hub.docker.com/v2/repositories/{}/{}'
+        response = requests.get(dockerhub.format(username.lower(), repo))
+        code = response.status_code
+        body = response.json()
+        # code, body = dockerhub.repositories[username.lower()][repo].get()
         if code != 200:
             continue
 
-        url = 'https://hub.docker.com/r/{}/{}/'.format(username, repo)
+        url = 'https://hub.docker.com/r/{}/{}/'.format(username.lower(), repo)
         stars = body['star_count']
         pulls = body['pull_count']
         return url, stars, pulls
@@ -84,6 +93,25 @@ def get_github_tags(username, repo):
         return 'master', 0
 
     return latest, body['ahead_by']
+
+
+# def get_pypi(repo):
+#     repos = {repo}
+#     if repo.startswith('python-'):
+#         repos.add(repo[7:])
+#     if repo.startswith('pypi-'):
+#         repos.add(repo[5:])
+#     if repo.startswith('pip-'):
+#         repos.add(repo[4:])
+
+#     for repo in repos:
+#         pulls = vanity.count_downloads(repo, verbose=False)
+#         if not pulls:
+#             continue
+
+#         return pulls
+
+#     return 0
 
 
 class ProjectHandler(RequestHandler):
