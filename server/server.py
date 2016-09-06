@@ -18,6 +18,7 @@ import vanity
 tornado.log.enable_pretty_logging()
 
 
+# TODO: requests -> agithub for puppet forge
 # TODO: requests -> agithub for dockerhub
 # class Dockerhub(API):
 #     def __init__(self, *args, **kwargs):
@@ -95,6 +96,26 @@ def get_github_tags(username, repo):
     return latest, body['ahead_by']
 
 
+def get_puppetforge(username, repo):
+    repos = {repo}
+    if repo.startswith('puppet-'):
+        repos.add(repo[7:])
+
+    for repo in repos:
+        puppetforge = 'https://forgeapi.puppetlabs.com/v3/modules/{}-{}'
+        response = requests.get(puppetforge.format(username.lower(), repo))
+        code = response.status_code
+        body = response.json()
+        if code != 200:
+            continue
+
+        url = 'https://forge.puppet.com/{}/{}'.format(username.lower(), repo)
+        pulls = body['downloads']
+        return url, pulls
+
+    return '', 0
+
+
 def get_pypi(repo):
     repos = {repo}
     if repo.startswith('python-'):
@@ -127,15 +148,20 @@ class ProjectHandler(RequestHandler):
         latest, ahead_by = get_github_tags(username, repo)
         body['latest'], body['ahead_by'] = latest, ahead_by
 
-        deploy_url, deploy_stars, deploy_pulls = get_dockerhub(username, repo)
-        body['deploy_url'] = deploy_url
-        body['deploy_stars'] = deploy_stars
-        body['deploy_pulls'] = deploy_pulls
+        url, pulls = get_puppetforge(username, repo)
+        body['deploy_url'] = url
+        body['deploy_pulls'] = pulls
 
-        if not deploy_url:
-            deploy_url, deploy_pulls = get_pypi(repo)
-            body['deploy_url'] = deploy_url
-            body['deploy_pulls'] = deploy_pulls
+        if not body['deploy_url']:
+            url, pulls = get_pypi(repo)
+            body['deploy_url'] = url
+            body['deploy_pulls'] = pulls
+
+        if not body['deploy_url']:
+            url, stars, pulls = get_dockerhub(username, repo)
+            body['deploy_url'] = url
+            body['deploy_stars'] = stars
+            body['deploy_pulls'] = pulls
 
         status_url, status_image = get_circleci(username, body['name'],
                                                 body['default_branch'])
