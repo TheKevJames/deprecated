@@ -50,8 +50,8 @@ a {
 #repos {
   width: 100%; }
   #repos div {
-    width: 300px;
-    margin: 10px 5% 10px 5%;
+    width: 350px;
+    margin: 10px 5px 10px 5px;
     border: 1px #727272 solid;
     border-radius: 4px; }
     #repos div p {
