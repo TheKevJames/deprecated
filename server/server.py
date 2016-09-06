@@ -65,14 +65,14 @@ def get_dockerhub(username, repo):
 
     for repo in repos:
         dockerhub = 'https://registry.hub.docker.com/v2/repositories/{}/{}'
-        response = requests.get(dockerhub.format(username.lower(), repo))
+        response = requests.get(dockerhub.format(username, repo))
         code = response.status_code
         body = response.json()
-        # code, body = dockerhub.repositories[username.lower()][repo].get()
+        # code, body = dockerhub.repositories[username][repo].get()
         if code != 200:
             continue
 
-        url = 'https://hub.docker.com/r/{}/{}/'.format(username.lower(), repo)
+        url = 'https://hub.docker.com/r/{}/{}/'.format(username, repo)
         stars = body['star_count']
         pulls = body['pull_count']
         return url, stars, pulls
@@ -103,13 +103,13 @@ def get_puppetforge(username, repo):
 
     for repo in repos:
         puppetforge = 'https://forgeapi.puppetlabs.com/v3/modules/{}-{}'
-        response = requests.get(puppetforge.format(username.lower(), repo))
+        response = requests.get(puppetforge.format(username, repo))
         code = response.status_code
         body = response.json()
         if code != 200:
             continue
 
-        url = 'https://forge.puppet.com/{}/{}'.format(username.lower(), repo)
+        url = 'https://forge.puppet.com/{}/{}'.format(username, repo)
         pulls = body['downloads']
         return url, pulls
 
@@ -148,6 +148,9 @@ class ProjectHandler(RequestHandler):
         latest, ahead_by = get_github_tags(username, repo)
         body['latest'], body['ahead_by'] = latest, ahead_by
 
+        username = username.lower()
+        repo = repo.lower()
+
         url, pulls = get_puppetforge(username, repo)
         body['deploy_url'] = url
         body['deploy_pulls'] = pulls
@@ -163,7 +166,8 @@ class ProjectHandler(RequestHandler):
             body['deploy_stars'] = stars
             body['deploy_pulls'] = pulls
 
-        status_url, status_image = get_circleci(username, body['name'],
+        status_url, status_image = get_circleci(body['owner']['login'],
+                                                body['name'],
                                                 body['default_branch'])
         body['status_url'] = status_url
         body['status_image'] = status_image
