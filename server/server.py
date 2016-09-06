@@ -12,7 +12,7 @@ import tornado.options
 import tornado.log
 import tornado.web
 
-# import vanity
+import vanity
 
 
 tornado.log.enable_pretty_logging()
@@ -95,23 +95,25 @@ def get_github_tags(username, repo):
     return latest, body['ahead_by']
 
 
-# def get_pypi(repo):
-#     repos = {repo}
-#     if repo.startswith('python-'):
-#         repos.add(repo[7:])
-#     if repo.startswith('pypi-'):
-#         repos.add(repo[5:])
-#     if repo.startswith('pip-'):
-#         repos.add(repo[4:])
+def get_pypi(repo):
+    repos = {repo}
+    if repo.startswith('python-'):
+        repos.add(repo[7:])
+    if repo.startswith('pypi-'):
+        repos.add(repo[5:])
+    if repo.startswith('pip-'):
+        repos.add(repo[4:])
 
-#     for repo in repos:
-#         pulls = vanity.count_downloads(repo, verbose=False)
-#         if not pulls:
-#             continue
+    for repo in repos:
+        pulls = vanity.count_downloads(repo, verbose=False)
+        if not pulls:
+            continue
 
-#         return pulls
+        url = 'https://pypi.org/project/{}/'.format(repo)
 
-#     return 0
+        return url, pulls
+
+    return '', 0
 
 
 class ProjectHandler(RequestHandler):
@@ -129,6 +131,11 @@ class ProjectHandler(RequestHandler):
         body['deploy_url'] = deploy_url
         body['deploy_stars'] = deploy_stars
         body['deploy_pulls'] = deploy_pulls
+
+        if not deploy_url:
+            deploy_url, deploy_pulls = get_pypi(repo)
+            body['deploy_url'] = deploy_url
+            body['deploy_pulls'] = deploy_pulls
 
         status_url, status_image = get_circleci(username, body['name'],
                                                 body['default_branch'])
