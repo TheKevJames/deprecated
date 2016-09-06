@@ -191,7 +191,7 @@ def main(port):
     application = tornado.web.Application([
         (r'/', MainHandler),
         (r'/([\w-]+)/?', UserHandler),
-        (r'/([\w-]+)/([\w-]+)/?', ProjectHandler),
+        (r'/([\w-]+)/([\.\w-]+)/?', ProjectHandler),
     ], debug=True)
 
     http_server = tornado.httpserver.HTTPServer(application)
