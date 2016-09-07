@@ -46,9 +46,9 @@ class RequestHandler(tornado.web.RequestHandler):
         self.finish()
 
 
-class MainHandler(RequestHandler):
-    def get(self):
-        self.write('hello world')
+class PingHandler(RequestHandler):
+    def get(self, _ping=None):
+        self.write('ok')
 
 
 def get_circleci(username, repo, branch):
@@ -189,7 +189,7 @@ class UserHandler(RequestHandler):
 def main(port):
     tornado.options.parse_command_line()
     application = tornado.web.Application([
-        (r'/', MainHandler),
+        (r'/(ping)?', PingHandler),
         (r'/([\w-]+)/?', UserHandler),
         (r'/([\w-]+)/([\.\w-]+)/?', ProjectHandler),
     ], debug=True)
