@@ -14,7 +14,14 @@ implemented, partially-implemented, and roadmap)
 
 ## Usage
 
-    docker-compose up --build
+### Development
+
+    docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+
+### Production
+
+    docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
+    docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 
 <!--
 ## Configuration

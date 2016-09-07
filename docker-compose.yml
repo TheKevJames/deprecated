@@ -9,8 +9,6 @@ services:
     networks:
       network:
         ipv4_address: 172.16.0.1
-    ports:
-      - "8080:80"
 
   server:
     build: server/.
