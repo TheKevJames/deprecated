@@ -5,3 +5,5 @@ services:
     build:
       args:
         api_url: http:\/\/devstat.thekev.in:8880
+    ports:
+      - "80:80"
