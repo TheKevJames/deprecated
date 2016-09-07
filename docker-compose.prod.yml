@@ -4,6 +4,4 @@ services:
   web:
     build:
       args:
-        api_url: http:\/\/devstat.thekev.in:8880
-    ports:
-      - "80:80"
+        api_url: http:\/\/devstat.thekev.in:28002
