@@ -4,4 +4,4 @@ services:
   web:
     build:
       args:
-        api_url: http:\/\/devstat.thekev.in:28002
+        api_url: http:\/\/api.devstat.thekev.in
