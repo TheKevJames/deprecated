@@ -2,7 +2,10 @@ version: '2'
 
 services:
   web:
-    build: web/.
+    build:
+      context: web/.
+      args:
+        api_url: http:\/\/172.16.0.2:8880
     networks:
       network:
         ipv4_address: 172.16.0.1
@@ -16,6 +19,8 @@ services:
     networks:
       network:
         ipv4_address: 172.16.0.2
+    ports:
+      - "8880:8880"
 
 networks:
   network:

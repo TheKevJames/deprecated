@@ -1,7 +1,7 @@
 FROM python:3.5.2-alpine
 MAINTAINER Kevin James <KevinJames@thekev.in>
 
-EXPOSE 8888
+EXPOSE 8880
 
 COPY requirements.txt /src/requirements.txt
 RUN pip install --upgrade pip && \

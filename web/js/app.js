@@ -1,4 +1,4 @@
-var API = 'http://172.16.0.2:8888';
+var API = 'API_URL';
 
 var devstatApp = angular.module('devstatApp', []);
 
