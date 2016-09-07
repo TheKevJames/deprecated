@@ -8,7 +8,7 @@
   font-family: 'Cantarell';
   font-style: normal;
   font-weight: 400;
-  src: local('Cantarell Regular'), local('Cantarell-Regular'), url(http://themes.googleusercontent.com/static/fonts/cantarell/v4/V86VyqXbc09Sss3BPsMj1z8E0i7KZn-EPnyo3HZu7kw.woff) format('woff'); }
+  src: local('Cantarell Regular'), local('Cantarell-Regular'), url(https://themes.googleusercontent.com/static/fonts/cantarell/v4/V86VyqXbc09Sss3BPsMj1z8E0i7KZn-EPnyo3HZu7kw.woff) format('woff'); }
 .font-header, h1 {
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
