@@ -67,14 +67,22 @@
 		"*.d",
 		"*.db",
 		"*.dll",
+		"*.dvi",
 		"*.dylib",
 		"*.exe",
+		"*.fdb_latexmk",
+		"*.fls",
 		"*.idb",
 		"*.lib",
+		"*.lof",
+		"*.lot",
 		"*.ncb",
 		"*.o",
 		"*.obj",
+		"*.out",
 		"*.pdb",
+		"*.pdb",
+		"*.pdfsync",
 		"*.psd",
 		"*.pyc",
 		"*.pyo",
@@ -83,6 +91,7 @@
 		"*.sublime-project",
 		"*.sublime-workspace",
 		"*.suo",
+		"*.synctex.gz",
 		"*.toc",
 		".DS_Store"
 	],
@@ -93,7 +102,8 @@
 		".git",
 		".hg",
 		".svn",
-		"CVS"
+		"CVS",
+		"node_modules"
 	],
 	"font_options":
 	[
