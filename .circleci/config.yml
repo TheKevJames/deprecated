@@ -67,7 +67,7 @@ jobs:
               docker push thekevjames/devstat-web:latest
             fi
 
-  deploy-via-ssh:
+  deploy:
     docker:
       - image: docker:17.05.0-ce-git
     steps:
@@ -83,7 +83,7 @@ workflows:
   version: 2
   check-build-and-deploy:
     jobs:
-      - check:
+      - check
 
       - server:
           context: org-global
@@ -94,7 +94,7 @@ workflows:
           requires:
             - check
 
-      - deploy-via-ssh:
+      - deploy:
           filters:
             branches:
               only: master
