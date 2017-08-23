@@ -2,8 +2,9 @@
 # TODO: cloudflare?
 # TODO: netdata? specific netdata?
 # TODO: newrelic?
-# TODO: sentry api key?
+# TODO: pyup?
 # TODO: sensu?
+# TODO: sentry api key?
 
 overview:
   - url: https://stats.uptimerobot.com/28m2jCo30
