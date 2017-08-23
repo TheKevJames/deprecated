@@ -1,4 +1,4 @@
-var API = location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8081' : 'https://server.devstat.thekev.in';
+var API = location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8081' : 'https://api.devstat.thekev.in';
 
 var devstatApp = angular.module('devstatApp', []);
 

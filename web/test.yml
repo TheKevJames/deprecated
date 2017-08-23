@@ -23,6 +23,19 @@ apps:
 
   - name: DevStat
     repo: TheKevJames/devstat
+    test:
+      - circleci
+    deploy:
+      dockerhub:
+        - thekevjames/devstat-server
+        - thekevjames/devstat-web
+      url:
+        - https://api.devstat.thekev.in
+        - https://devstat.thekev.in
+    monitor:
+      uptimerobot:
+        - m779345687-dc16db03183f06afd69fd917
+        - m779345690-805c3a22e9a83124d928bc1b
 
   - name: dotsystem
     repo: TheKevJames/dotsystem
