@@ -12,8 +12,8 @@ can deploy with:
 
 You can update to the latest build with:
 
-    docker service update --force thekevjames_devstat_web
     docker service update --force thekevjames_devstat_server
+    docker service update --force thekevjames_devstat_web
 
 ## Secrets
 
