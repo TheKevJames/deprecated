@@ -2,61 +2,21 @@
 
 DevStat is an all-in-one page for viewing the status of your various projects.
 
-## Features
+## Deploy
 
-(this project is in early development; the below features are a mix of
-implemented, partially-implemented, and roadmap)
+Since you only really need the `docker-compose.yml` file for deployment, you
+can deploy with:
 
-- auto-discovery of repos
-- watch test status, release lag, issue/PR count, etc
-- view release stats, stars, downloads, etc
-- notification on release of dependent libraries
+    curl https://raw.githubusercontent.com/TheKevJames/devstat/master/docker-compose.yml > devstat.yml
+    docker stack deploy -c devstat.yml thekevjames
 
-## Usage
+You can update to the latest build with:
 
-### Development
+    docker service update --force thekevjames_devstat_web
+    docker service update --force thekevjames_devstat_server
 
-    docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+## Secrets
 
-### Production
+This project requires access to some secret keys; you can set these with:
 
-    docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
-    docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
-
-<!--
-## Configuration
-
-This project conforms to the [XDG Base Directory Specification]
-(https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
-That means it will search for a `config.yml` in the current directory, then in
-the user config directory, then in the `XDG_CONFIG_DIRS`. For example, on Linux
-your user-level config should be stored at `~/.config/devstat/config.yml`.
-
-A sample (complicated!) config would look like this:
-
-```
-username: TheKevJames
-
-hide:
-  - notes
-
-deploy:
-  hub.docker:
-    - docker-mysqltuner: mysqltuner
-    - docker-ubuntu32: thekevjames/ubuntu32
-
-  forge.puppetlabs:
-    - puppet-homebrew: homebrew
-    - puppet-vault: vault
-
-  pypi.python:
-    - aerofs-sdk-python: aerofs
-    - python-util
-
-status:
-  circleci:
-    - devstat
-    - dotfiles
-    - jarvis
-```
--->
+    echo "my-github-token" | docker secret create github_token -

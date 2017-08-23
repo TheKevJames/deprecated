@@ -1,0 +1,14 @@
+version: '3.2'
+
+services:
+  devstat_server:
+    build: server/.
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    ports:
+      - "8081:80"
+
+  devstat_web:
+    build: web/.
+    ports:
+      - "8080:80"

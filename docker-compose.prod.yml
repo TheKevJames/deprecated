@@ -1,7 +1,0 @@
-version: '2'
-
-services:
-  web:
-    build:
-      args:
-        api_url: http:\/\/api.devstat.thekev.in

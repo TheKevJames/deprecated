@@ -1,7 +1,0 @@
-version: '2'
-
-services:
-  web:
-    build:
-      args:
-        api_url: http:\/\/127.0.0.1:28002

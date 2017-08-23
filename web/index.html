@@ -9,28 +9,27 @@
 
     <title>DevStat</title>
 
-    <link rel="stylesheet" href="css/extern/reset.css" />
-    <link rel="stylesheet" href="css/extern/bootstrap-3.3.4.min.css" />
-    <link rel="stylesheet" href="css/extern/octicons.css">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css">
+    <link rel="stylesheet" href="style.css" />
 
-    <!-- <link rel='icon' href='/img/favicon.png' /> -->
-
-    <script src="js/extern/angular-1.5.8.min.js"></script>
-    <script src="js/extern/jquery-2.1.4.min.js"></script>
-    <script src="js/extern/bootstrap-3.3.4.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.9.1/js-yaml.min.js"></script>
+    <script src="app.js"></script>
 </head>
 
 <body>
 <div ng-app="devstatApp">
-    <repo-list></repo-list>
+    <app-list></app-list>
 </div>
 
-<script src="js/extern/wookmark-2.0.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.wookmark/2.1.2/wookmark.min.js"></script>
 <script>
 setInterval(function() {
-    $('#repos').wookmark({
+    $('#app-list').wookmark({
         itemWidth: 350,
         offset: 10,
     });

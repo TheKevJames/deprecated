@@ -1,34 +1,34 @@
-version: '2'
+version: '3.2'
 
 services:
-  web:
-    build:
-      context: web/.
-      args:
-        api_url: http:\/\/172.16.0.2:8880
-    networks:
-      network:
-        ipv4_address: 172.16.0.1
-    ports:
-      - "28001:80"
+  devstat_server:
+    image: thekevjames/devstat-server:latest
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 20s
+      update_config:
+        parallelism: 1
+        monitor: 20s
+    secrets:
+      - github_token
 
-  server:
-    build: server/.
-    environment:
-      - GITHUB_TOKEN=${GITHUB_TOKEN}
-    networks:
-      network:
-        ipv4_address: 172.16.0.2
-    ports:
-      - "28002:8880"
+  devstat_web:
+    image: thekevjames/devstat-web:latest
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 20s
+      update_config:
+        parallelism: 1
+        monitor: 20s
 
-networks:
-  network:
-    driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv4: "true"
-    ipam:
-      driver: default
-      config:
-      - subnet: 172.16.0.0/24
-        gateway: 172.16.0.254
+secrets:
+  github_token:
+    external: true

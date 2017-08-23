@@ -1,4 +1,2 @@
 agithub==2.1
-requests==2.11.1
-tornado==4.4.1
-vanity==2.2.2
+tornado==4.5.1

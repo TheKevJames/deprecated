@@ -17,7 +17,7 @@
   line-height: 40px;
   color: #191919; }
 
-.font-subheader, h2, #repos div div.repo-header .repo-name {
+.font-subheader, h2, #app-list div div.repo-header .repo-name {
   font-family: 'Cantarell', sans-serif;
   font-weight: 700;
   font-size: 17px;
@@ -47,16 +47,16 @@ a {
   a:hover {
     color: #191919; }
 
-#repos {
+#app-list {
   width: 100%; }
-  #repos div {
+  #app-list div {
     width: 350px;
     margin: 10px 5px 10px 5px;
     border: 1px #727272 solid;
     border-radius: 4px; }
-    #repos div p {
+    #app-list div p {
       padding: 5px; }
-    #repos div div {
+    #app-list div div {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
@@ -66,25 +66,25 @@ a {
       width: 100%;
       color: white;
       border: none; }
-      #repos div div.repo-header {
+      #app-list div div.repo-header {
         background-color: #abc3d9;
         border-radius: 4px 4px 0 0; }
-        #repos div div.repo-header .octicon {
+        #app-list div div.repo-header .octicon {
           margin: 8px; }
-          #repos div div.repo-header .octicon a {
+          #app-list div div.repo-header .octicon a {
             color: white; }
-        #repos div div.repo-header .repo-name {
+        #app-list div div.repo-header .repo-name {
           margin: 6px 0; }
-        #repos div div.repo-header .octicon-left {
+        #app-list div div.repo-header .octicon-left {
           float: left;
           margin-right: -16px; }
-        #repos div div.repo-header .repo-name {
+        #app-list div div.repo-header .repo-name {
           text-align: center; }
-      #repos div div.repo-body {
+      #app-list div div.repo-body {
         background-color: white;
         border-radius: 0; }
-      #repos div div.repo-status {
+      #app-list div div.repo-status {
         background-color: #a8c2ae;
         border-radius: 0 0 4px 4px; }
-    #repos div :last-child {
+    #app-list div :last-child {
       border-radius: 0 0 4px 4px; }
