@@ -19,4 +19,5 @@ You can update to the latest build with:
 
 This project requires access to some secret keys; you can set these with:
 
+    cat "google-service.json" | docker secret create google_service_creds -
     echo "my-github-token" | docker secret create github_token -

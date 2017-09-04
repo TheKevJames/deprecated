@@ -1,8 +1,9 @@
 import google.cloud.datastore
 
+from .common.values import Status
+from .data.github import get_github_data
 from .server import RequestHandler
 from .status.uptimerobot import get_uptime_status
-from .status.values import Status
 
 
 GC_KIND_PROJECT = 'DevstatProject'
@@ -19,15 +20,19 @@ class ProjectHandler(RequestHandler):
         wkey = client.key(GC_KIND_WORKSPACES, int(wid))
         query.add_filter('workspace', '=', wkey)
         for entity in query.fetch():
-            status = Status.UNKNOWN
-
-            if entity.get('status.uptimerobot'):
-                status = get_uptime_status(entity['status.uptimerobot'])
-
-            response['data'].append({
+            data = {
                 'id': entity.key.path[0]['id'],
                 'name': entity['name'],
-                'status': status,
-            })
+                'status': Status.UNKNOWN
+            }
+
+            if entity.get('data.github'):
+                username, repo = entity['data.github'].split('/')
+                data.update(get_github_data(username, repo))
+
+            if entity.get('status.uptimerobot'):
+                data.update(get_uptime_status(entity['status.uptimerobot']))
+
+            response['data'].append(data)
 
         self.write(response)

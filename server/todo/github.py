@@ -40,8 +40,6 @@ class GithubHandler(RequestHandler):
             self.finish(body)
             return
 
-        # TODO: split body['open_issues_count'] into issues and PRs
-
         latest, ahead_by = get_github_tags(username, repo)
         body['latest'], body['ahead_by'] = latest, ahead_by
 

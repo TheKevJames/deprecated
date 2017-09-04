@@ -1,7 +1,7 @@
 import google.cloud.datastore
 
+from .common.values import Status
 from .server import RequestHandler
-from .status.values import Status
 
 
 GC_KIND_LINK = 'DevstatLink'

@@ -1,8 +1,8 @@
 import google.cloud.datastore
 
+from .common.values import Status
 from .server import RequestHandler
 from .status.postgres import get_pg_status
-from .status.values import Status
 
 
 GC_KIND_RESOURCE = 'DevstatResource'
@@ -19,16 +19,16 @@ class ResourceHandler(RequestHandler):
         wkey = client.key(GC_KIND_WORKSPACES, int(wid))
         query.add_filter('workspace', '=', wkey)
         for entity in query.fetch():
-            status = Status.UNKNOWN
-
-            if entity['kind'] == 'postgres':
-                status = await get_pg_status(entity['url'])
-
-            response['data'].append({
+            data = {
                 'id': entity.key.path[0]['id'],
                 'kind': entity['kind'],
                 'name': entity['name'],
-                'status': status,
-            })
+                'status': Status.UNKNOWN
+            }
+
+            if entity['kind'] == 'postgres':
+                data.update(await get_pg_status(entity['url']))
+
+            response['data'].append(data)
 
         self.write(response)

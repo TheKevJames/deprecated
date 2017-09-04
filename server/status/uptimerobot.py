@@ -1,6 +1,6 @@
 import requests
 
-from .values import Status
+from ..common.values import Status
 
 
 API_URL = 'https://api.uptimerobot.com/v2/getMonitors'
@@ -24,6 +24,6 @@ def get_uptime_status(token):
 
     resp = requests.post(API_URL, headers=HEADERS, data=data)
     if resp.status_code != 200:
-        return Status.RED
+        return {'status': Status.RED}
 
-    return STATUS_MAP[resp.json()['monitors'][0]['status']]
+    return {'status': STATUS_MAP[resp.json()['monitors'][0]['status']]}
