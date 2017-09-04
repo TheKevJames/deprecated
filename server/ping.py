@@ -1,4 +1,4 @@
-from server import RequestHandler
+from .server import RequestHandler
 
 
 class PingHandler(RequestHandler):

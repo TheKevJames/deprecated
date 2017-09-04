@@ -26,3 +26,5 @@
         - -d invalid-name
         - -d locally-disabled
         - -d missing-docstring
+        - --min-similarity-lines=8
+        exclude: server/todo/*  # TODO: todos
