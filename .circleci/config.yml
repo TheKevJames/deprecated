@@ -74,9 +74,9 @@ jobs:
       - deploy:
           name: deploy images
           command: |
-            ssh -oStrictHostKeyChecking=no ubuntu@thekev.in "
-              docker service update --image thekevjames/devstat-server:${CIRCLE_BRANCH}-${CIRCLE_SHA1:0:8} thekevjames_devstat_server
-              docker service update --image thekevjames/devstat-web:${CIRCLE_BRANCH}-${CIRCLE_SHA1:0:8} thekevjames_devstat_web
+            ssh -oStrictHostKeyChecking=no kevin@thekev.in "
+              sudo docker service update --image thekevjames/devstat-server:${CIRCLE_BRANCH}-${CIRCLE_SHA1:0:8} thekevjames_devstat_server
+              sudo docker service update --image thekevjames/devstat-web:${CIRCLE_BRANCH}-${CIRCLE_SHA1:0:8} thekevjames_devstat_web
             "
 
 workflows:
