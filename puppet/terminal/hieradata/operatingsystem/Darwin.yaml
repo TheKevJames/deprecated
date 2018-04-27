@@ -1,0 +1,16 @@
+---
+terminal::bash::packages:
+  - bash-completion
+
+terminal::os: Darwin
+
+terminal::utilities::packages:
+  - autoconf
+  - automake
+  - curl
+  - jq
+  - make
+  - pkg-config
+  - the_silver_searcher
+  - unzip
+  - wget
