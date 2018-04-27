@@ -1,0 +1,14 @@
+---
+jasper::cmuclmtk::dependencies:
+  - curl
+  - espeak
+  - gcc
+  - gcc-c++
+  - gcc-fortran
+  - libtool
+  - make
+
+jasper::pocketsphinx::dependencies:
+  - bison
+  - curl
+  - make

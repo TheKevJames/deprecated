@@ -1,0 +1,20 @@
+first_name: <%= @first_name %>
+last_name: <%= @last_name %>
+
+gmail_address: '<%= @email_address %>'
+gmail_password: '<%= @email_password %>'
+
+phone_number: '<%= @phone %>'
+carrier: <%= @carrier %>
+
+prefers_email: false
+
+stt_engine: sphinx
+pocketsphinx:
+  fst_model: /opt/g014b2b/g014b2b.fst
+  hmm_dir: /usr/local/share/pocketsphinx/model/hmm/en_US/hub4wsj_sc_8k
+
+tts_engine: espeak-tts
+
+location: <%= @location %>
+timezone: <%= @timezone %>
