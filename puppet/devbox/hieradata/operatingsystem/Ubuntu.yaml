@@ -1,0 +1,12 @@
+---
+devbox::db::mariadb::packages:
+  - mariadb-client
+  - mariadb-server
+
+devbox::db::mysql::packages: mysql-server
+
+devbox::lang::go::packages: golang
+
+devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
+
+devbox::update_packages_command: /usr/bin/apt-get update

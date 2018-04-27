@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+RPROMPT="$_OLD_RPROMPT"

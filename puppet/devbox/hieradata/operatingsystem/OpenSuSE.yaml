@@ -1,0 +1,11 @@
+---
+devbox::lang::ocaml::packages:
+  - m4
+  - ocaml
+  - ocaml-camlp4
+  - ocaml-camlp4-devel
+  - ocaml-ocamldoc
+
+devbox::lang::python::pip_path: /usr/bin
+
+devbox::update_packages_command: /usr/bin/zypper ref

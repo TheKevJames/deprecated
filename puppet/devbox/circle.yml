@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+test:
+  pre:
+    - curl https://raw.githubusercontent.com/TheKevJames/puppettools/master/moduletest/runner.py > runner.py:
+        parallel: true
+  override:
+    - python runner.py --parallel $CIRCLE_NODE_TOTAL $CIRCLE_NODE_INDEX :
+        parallel: true
+        timeout: 900

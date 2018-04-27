@@ -1,0 +1,26 @@
+---
+devbox::db::mariadb::packages: mariadb
+
+devbox::db::mysql::packages: mysql
+
+devbox::db::postgres::packages: postgresql
+
+devbox::db::redis::config: /usr/local/etc/redis.conf
+
+devbox::db::sqlite::packages: sqlite
+
+devbox::lang::c::packages:
+  - gcc
+  - llvm
+  - valgrind
+
+# TODO: other OS's are on 1.7 (caskroom/versions/java7)
+devbox::lang::java::packages: java
+
+devbox::lang::python::python_path: /usr/local/bin
+devbox::lang::python::virtualenvsource: /usr/local/bin/virtualenvwrapper.sh
+
+devbox::tool::tmux::dependencies: reattach-to-user-namespace
+
+# Ugh
+devbox::update_packages_command: /usr/bin/sudo -i -u $(stat -f '%Su' /usr/local/bin/brew) /usr/local/bin/brew update

@@ -1,0 +1,11 @@
+[distutils]
+index-servers=pypi
+
+[pypi]
+repository = https://pypi.python.org/pypi
+username:<%= scope['devbox::lang::python::pypi_username'] %>
+password:<%= scope['devbox::lang::python::pypi_password'] %>
+
+[server-login]
+username:<%= scope['devbox::lang::python::pypi_username'] %>
+password:<%= scope['devbox::lang::python::pypi_password'] %>

@@ -1,0 +1,7 @@
+<% if @os['release']['major'] == '7' %>
+deb http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.1/debian wheezy main
+deb-src http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.1/debian wheezy main
+<% elsif @os['release']['major'] == '8' %>
+deb http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.1/debian jessie main
+deb-src http://nyc2.mirrors.digitalocean.com/mariadb/repo/10.1/debian jessie main
+<% end %>

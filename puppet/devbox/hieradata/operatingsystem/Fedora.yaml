@@ -1,0 +1,4 @@
+---
+devbox::db::mariadb::packages:
+  - mariadb
+  - mariadb-server

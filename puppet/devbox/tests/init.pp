@@ -1,0 +1,3 @@
+class { '::devbox':
+  home => '/root',
+}

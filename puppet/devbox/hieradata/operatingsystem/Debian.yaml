@@ -1,0 +1,15 @@
+---
+devbox::lang::c::packages:
+  - clang
+  - gcc
+  - gfortran
+  - valgrind
+
+devbox::lang::go::packages: golang-go
+
+devbox::lang::java::packages:
+  - openjdk-7-jdk
+  - openjdk-7-jre
+  - openjdk-7-jre-headless
+
+devbox::update_packages_command: /usr/bin/apt-get update
