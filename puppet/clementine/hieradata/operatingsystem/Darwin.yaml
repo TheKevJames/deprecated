@@ -1,0 +1,4 @@
+---
+clementine::config_file: org.clementine-player.clementine.plist
+clementine::config_folder: Library/Preferences
+clementine::config_template: config.osx.erb

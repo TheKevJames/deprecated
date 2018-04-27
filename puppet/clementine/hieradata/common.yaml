@@ -1,0 +1,6 @@
+---
+clementine::config_file: Clementine.conf
+clementine::config_folder: .config/Clementine
+clementine::config_template: config.linux.erb
+
+clementine::packages: clementine
