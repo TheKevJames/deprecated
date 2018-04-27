@@ -1,0 +1,3 @@
+---
+mpd::server::service_location: /Library/LaunchDaemons/mpd.plist
+mpd::server::service_template: launchd.erb

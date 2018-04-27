@@ -1,0 +1,7 @@
+---
+mpd::client::packages: ncmpc
+
+mpd::server::service_location: /etc/systemd/system/mpd.service
+mpd::server::service_template: systemd.erb
+
+mpd::server::packages: mpd

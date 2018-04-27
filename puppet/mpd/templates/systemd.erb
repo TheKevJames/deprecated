@@ -1,0 +1,13 @@
+[Unit]
+Description=mpd daemon
+After=network.target sound.target
+
+[Service]
+User=<%= scope['mpd::server::user'] %>
+ExecStart=/usr/bin/mpd <%= scope['mpd::server::home'] %>/.config/mpd/mpd.conf
+ExecStop=/usr/bin/mpd <%= scope['mpd::server::home'] %>/.config/mpd/mpd.conf --kill
+Restart=always
+PIDFile=<%= scope['mpd::server::home'] %>/.config/mpd/pid
+
+[Install]
+WantedBy=multi-user.target

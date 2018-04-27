@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>Label</key>
+        <string>mpd</string>
+        <key>KeepAlive</key>
+        <true/>
+        <key>ProgramArguments</key>
+        <array>
+                <string>/usr/bin/mpd</string>
+                <string><%= scope['mpd::server::home'] %>/.config/mpd/mpd.conf</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>StandardErrorPath</key>
+        <string>/var/log/mpd.log</string>
+        <key>StandardOutPath</key>
+        <string>/var/log/mpd.log</string>
+</dict>
+</plist>
