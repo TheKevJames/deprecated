@@ -1,0 +1,4 @@
+---
+git::tar: /usr/bin/tar
+
+git::hub::url: https://github.com/github/hub/releases/download/v2.2.3/hub-darwin-amd64-2.2.3.tgz
