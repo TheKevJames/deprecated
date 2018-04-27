@@ -1,0 +1,4 @@
+---
+transmission::packages:
+  - transmission
+  - transmission-gtk

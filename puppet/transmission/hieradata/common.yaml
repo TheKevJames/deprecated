@@ -1,0 +1,4 @@
+---
+transmission::packages: transmission
+
+transmission::daemon::packages: transmission-daemon
