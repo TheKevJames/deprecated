@@ -1,0 +1,14 @@
+[Unit]
+Description=consul daemon
+After=network.target
+
+[Service]
+User=root
+Group=root
+ExecStart=/opt/consul agent -config-dir=/etc/consul.d -advertise=<%= @networking['ip'] %> -bootstrap-expect 1
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGINT
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

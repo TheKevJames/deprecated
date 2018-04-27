@@ -1,0 +1,11 @@
+{
+    "server": true,
+    "datacenter": "<%= scope['consul::datacenter'] %>",
+    "data_dir": "/tmp/consul",
+    "enable_syslog": true,
+    "log_level": "INFO",
+    "ui": true,
+    "atlas_infrastructure": "<%= scope['consul::atlas_infrastructure'] %>",
+    "atlas_join": true,
+    "atlas_token": "<%= scope['consul::atlas_token'] %>"
+}
