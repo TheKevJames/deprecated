@@ -1,0 +1,108 @@
+# TODO: auto-deploy? by branch, etc
+# TODO: cloudflare?
+# TODO: netdata? specific netdata?
+# TODO: newrelic?
+# TODO: pyup?
+# TODO: sensu?
+# TODO: sentry api key?
+
+overview:
+  - url: https://stats.uptimerobot.com/28m2jCo30
+  - url: https://status.thekev.in
+
+apps:
+  - repo: coveralls-clients/coveralls-python
+    test:
+      - circleci
+      - coveralls
+      - travis
+    deploy:
+      pypi:
+        - coveralls
+
+  - repo: TheKevJames/devstat
+    test:
+      - circleci
+    deploy:
+      dockerhub:
+        - thekevjames/devstat-server
+        - thekevjames/devstat-web
+      url:
+        - https://api.devstat.thekev.in
+        - https://devstat.thekev.in
+
+  - repo: TheKevJames/dotsystem
+    test:
+      - circleci
+
+  - name: J.A.R.V.I.S.
+    repo: TheKevJames/jarvis
+    test:
+      - circleci
+      - coveralls
+    deploy:
+      dockerhub:
+        - thekevjames/jarvis
+      url:
+        - https://jarvis.thekev.in
+    monitor:
+      sentry:
+        - kevin-james/jarvis
+
+  - repo: TheKevJames/league
+    test:
+      - circleci
+      - coveralls
+    deploy:
+      dockerhub:
+        - thekevjames/league-utils-api
+      pypi:
+        - league-utils
+      url:
+        - https://league.thekev.in
+    monitor:
+      sentry:
+        - kevin-james/league-utils-api
+
+  - repo: TheKevJames/infrastructure
+    deploy:
+      dockerhub:
+        - thekevjames/nginx
+        - thekevjames/ssl
+      url:
+        - https://status.thekev.in
+
+  - repo: TheKevJames/thekev.in
+    test:
+      - circleci
+    deploy:
+      dockerhub:
+        - thekevjames/thekev.in
+      url:
+        - https://thekev.in
+    monitor:
+      sentry:
+        - kevin-james/thekevin
+
+  - repo: TheKevJames/postgres-stats-publisher
+    test:
+      - circleci
+
+  - repo: TheKevJames/puppet-homebrew
+    test:
+      - circleci
+      - travis
+    deploy:
+      puppetforge:
+        - thekevjames/homebrew
+
+  - repo: TheKevJames/you-should-read
+    test:
+      - circleci
+    deploy:
+      dockerhub:
+        - thekevjames/you-should-read-client
+        - thekevjames/you-should-read-server
+      url:
+        - https://youshouldread.thekev.in
+        - https://api.youshouldread.thekev.in

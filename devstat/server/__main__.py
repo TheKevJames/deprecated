@@ -6,6 +6,7 @@ import tornado.log
 import tornado.platform.asyncio
 import tornado.web
 
+from .draw import DrawHandler
 from .link import LinkHandler
 from .ping import PingHandler
 from .project import ProjectHandler
@@ -19,6 +20,8 @@ def main():
 
     app = tornado.web.Application([
         (r'/(ping)?', PingHandler),
+
+        (r'/draw', DrawHandler),
 
         (r'/link/(\d+)', LinkHandler),
         (r'/project/(\d+)', ProjectHandler),

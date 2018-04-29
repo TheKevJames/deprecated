@@ -35,12 +35,19 @@ $.get(`${API}/link/${PROJECT}`, (resp) => {
 });
 
 $.get(`${API}/project/${PROJECT}`, (resp) => {
-    nodes.update(resp.data.map((project) => ({
-        color: get_color_for_status(project.status),
-        id: project.id,
-        label: project.name,
-        shape: "box",
-    })));
+    nodes.update(resp.data.map((project) => {
+        if (project.issues && project.pulls) {
+            console.log(project.issues);
+            console.log(project.pulls);
+        }
+
+        return {
+            color: get_color_for_status(project.status),
+            id: project.id,
+            label: project.name,
+            shape: "box",
+        }
+    }));
 });
 
 $.get(`${API}/resource/${PROJECT}`, (resp) => {
@@ -48,7 +55,14 @@ $.get(`${API}/resource/${PROJECT}`, (resp) => {
         color: get_color_for_status(resource.status),
         id: resource.id,
         label: `${resource.kind}:${resource.name}`,
-        shape: "box",
+        // image: `${API}/resource/${PROJECT}`,
+        // shape: "box",
+        image: `${API}/draw?name=${resource.name}`,
+        shape: "image",
+        // shapeProperties: {
+        //     height: 40,
+        //     width: 100,
+        // },
     })));
 });
 

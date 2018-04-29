@@ -1,0 +1,120 @@
+projects:
+  - name: asp
+    repo: atomic-labs/asp
+    testing: circleci
+    deployments:
+      - staging -> heroku:asp-accuvit-staging (asp-accuvit-staging.herokuapp.com)
+      - MANUAL  -> heroku:talkiq-stage2-asp (asp-stage2.talkiq.com)
+      - MANUAL  -> heroku:asp-accuvit-production (asp.talkiq.com)
+    monitoring: newrelic
+
+  - name: sniff
+    repo: atomic-labs/sniff
+    testing: circleci -> coveralls
+    deployments:
+      - MANUAL -> docker:talkiq/gsniff --MANUAL-> deploy.py (sniff.talkiq.net, sniff2.talkiq.net)
+    monitoring: sensu
+
+  - name: redswitch
+    repo: talkiq/redswitch
+    deployments:
+      - master -> docker:talkiq/redswitch --MANUAL-> deploy.py
+    monitoring: sensu
+
+  - name: omni
+    repo: talkiq/omni
+    testing: circleci
+    deployments:
+      - MANUAL -> heroku:talkiq-omni-staging (omni-staging.talkiq.com)
+      - MANUAL -> heroku:talkiq-omni (omni.talkiq.com)
+
+  - name: vader
+    repo: talkiq/vader
+    deployments:
+      - master -> docker:talkiq/vader --MANUAL-> deploy.py (???)
+    monitoring: sensu
+
+  - name: redis
+    repo: talkiq/redis
+    deployments:
+      - master -> docker:talkiq/redis-cluster-manager --MANUAL-> terraform:gcloud:redis-node-*
+      - master -> docker:talkiq/redis-cluster-monitor --MANUAL-> terraform:gcloud:redis-node-*
+      - master -> docker:talkiq/redis-cluster-node    --MANUAL-> terraform:gcloud:redis-node-*
+    monitoring: sensu
+
+  - name: terraform
+    repo: talkiq/terraform
+
+  - name: website
+    repo: talkiq/website
+    deployments:
+      - master -> docker:talkiq/website-nginx --MANUAL-> terraform:gcloud:website (talkiq.com)
+      - master -> docker:talkiq/website-ssl   --MANUAL-> terraform:gcloud:website (talkiq.com)
+
+  - name: infrastructure
+    repo: talkiq/infrastructure
+    TODO
+
+  - name: gc-recorded
+    repo: talkiq/gc-recorded
+    TODO
+
+  - name: gc-asr
+    repo: talkiq/gc-asr
+    TODO
+
+  - name: gc-streamproc
+    repo: talkiq/gc-streamproc
+    TODO
+
+  - name: gc-nlp
+    repo: talkiq/gc-nlp
+    TODO
+
+  - name: oauth
+    repo: talkiq/oauth
+    TODO
+
+  - name: realtime-dev
+    repo: talkiq/realtime-dev
+    TODO
+
+  - name: realtime-nlp
+    repo: talkiq/realtime-nlp
+    TODO
+
+  - name: feats
+    repo: talkiq/feats
+    TODO
+
+  - name: sentiment
+    repo: talkiq/sentiment
+    TODO
+
+  - name: talkdesk-poll
+    repo: talkiq/talkdesk-poll
+    TODO
+
+  - name: talkdesk-worker
+    repo: talkiq/talkdesk-worker
+    TODO
+
+  - name: salesloft-poll
+    repo: talkiq/salesloft-poll
+    TODO
+
+  - name: salesloft-worker
+    repo: talkiq/salesloft-worker
+    TODO
+
+  - name: janus
+    repo: talkiq/janus
+    TODO
+
+  - name: gc-punk
+    repo: talkiq/gc-punk
+    TODO
+
+  - name: emperor-calpatine
+    repo: talkiq/emperor-calpatine
+    TODO
