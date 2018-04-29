@@ -67,18 +67,6 @@ jobs:
               docker push thekevjames/devstat-web:latest
             fi
 
-  deploy:
-    docker:
-      - image: docker:17.05.0-ce-git
-    steps:
-      - deploy:
-          name: deploy images
-          command: |
-            ssh -oStrictHostKeyChecking=no kevin@thekev.in "
-              sudo docker service update --image thekevjames/devstat-server:${CIRCLE_BRANCH}-${CIRCLE_SHA1:0:8} thekevjames_devstat_server
-              sudo docker service update --image thekevjames/devstat-web:${CIRCLE_BRANCH}-${CIRCLE_SHA1:0:8} thekevjames_devstat_web
-            "
-
 workflows:
   version: 2
   check-build-and-deploy:
@@ -93,11 +81,3 @@ workflows:
           context: org-global
           requires:
             - check
-
-      - deploy:
-          filters:
-            branches:
-              only: master
-          requires:
-            - server
-            - web
