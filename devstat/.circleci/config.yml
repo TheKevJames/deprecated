@@ -69,10 +69,9 @@ jobs:
 
 workflows:
   version: 2
-  check-build-and-deploy:
+  run-jobs:
     jobs:
       - check
-
       - server:
           context: org-global
           requires:
