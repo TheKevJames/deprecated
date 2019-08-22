@@ -13,7 +13,7 @@ jobs:
 
   server:
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: docker:17.12.1-ce-git
     steps:
       - checkout
       - setup_remote_docker
@@ -41,7 +41,7 @@ jobs:
 
   web:
     docker:
-      - image: docker:17.05.0-ce-git
+      - image: docker:17.12.1-ce-git
     steps:
       - checkout
       - setup_remote_docker
