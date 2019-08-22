@@ -1,6 +1,6 @@
 agithub==2.1
 asyncpg==0.14.0
-google-cloud-datastore==1.4.0
+google-cloud-datastore==1.9.0
 requests[security]>=2.20.0
 svgwrite==1.1.11
 tornado==4.5.3
