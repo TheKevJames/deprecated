@@ -37,3 +37,6 @@ Example commands I use for this are:
     git branch -d depr
     git remote rm depr
 
+    rm -r /tmp/repr
+
+TODO: ``git filter-branch`` tells me I should use ``git filter-repo`` instead.
