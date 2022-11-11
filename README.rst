@@ -20,13 +20,14 @@ Example commands I use for this are:
 .. code-block:: console
 
     # to deprecate the `octodash` project folder in `thekevjames/web`
-    git clone git://github.com/TheKevJames/web.git /tmp/depr
+    git clone git@github.com:TheKevJames/web.git /tmp/depr
     cd /tmp/depr
 
     git filter-branch --subdirectory-filter octodash -- -- all
     mkdir octodash/
     git mv <files> octodash/
 
+    git add .
     git commit -m 'chore(octodash): prepare for deprecation'
 
     cd ~/src/personal/deprecated
@@ -37,6 +38,6 @@ Example commands I use for this are:
     git branch -d depr
     git remote rm depr
 
-    rm -r /tmp/repr
+    rm -rf /tmp/depr
 
 TODO: ``git filter-branch`` tells me I should use ``git filter-repo`` instead.
