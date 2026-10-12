@@ -1,4 +1,6 @@
 {
-  "extends": ["github>thekevjames/tools:personal"],
-  "enabled": false,
+    "extends": [
+        "github>thekevjames/tools:personal",
+    ],
+    "enabled": false,
 }
